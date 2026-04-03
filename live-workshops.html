@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Workshops - White Label LMS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body data-page="workshops" class="bg-slate-100 text-slate-900">
+    <div class="min-h-screen flex">
+      <!-- Sidebar -->
+      <div id="sidebar-container"></div>
+
+      <!-- Main -->
+      <main class="app-main flex-1 min-w-0 flex flex-col">
+        <!-- Topbar -->
+        <header class="bg-white border-b border-slate-200 px-6 lg:px-8 py-4">
+          <div
+            class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
+          >
+            <div class="flex-1 max-w-2xl">
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="Search live sessions, mentors, topics..."
+                  class="w-full pl-12 pr-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                <span
+                  class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+                  >🔎</span
+                >
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <button
+                class="w-11 h-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-slate-50"
+              >
+                🔔
+              </button>
+              <button
+                class="w-11 h-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-slate-50"
+              >
+                ⚙️
+              </button>
+              <div
+                class="flex items-center gap-3 bg-white border border-slate-200 rounded-2xl px-3 py-2 shadow-sm"
+              >
+                <div
+                  class="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-500 to-cyan-500 text-white flex items-center justify-center font-bold"
+                >
+                  AR
+                </div>
+                <div>
+                  <p class="font-semibold text-sm">Aarav Reddy</p>
+                  <p class="text-xs text-slate-500">Student Workspace</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Page Content -->
+        <section class="p-6 lg:p-8 space-y-8">
+          <!-- Page Header -->
+          <div
+            class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-5"
+          >
+            <div>
+              <p class="text-sm font-semibold text-indigo-600">
+                Mentor Sessions
+              </p>
+              <h2 class="text-3xl lg:text-4xl font-bold mt-1">
+                Live Workshops
+              </h2>
+              <p class="text-slate-500 mt-2 max-w-3xl">
+                Join real-time interactive workshops, expert walkthroughs, and
+                guided practice sessions designed to help you learn faster and
+                stay accountable.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+              <button
+                class="px-5 py-3 rounded-2xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
+              >
+                Join Next Session
+              </button>
+              <button
+                class="px-5 py-3 rounded-2xl bg-white border border-slate-200 font-semibold hover:bg-slate-50 transition"
+              >
+                View Full Calendar
+              </button>
+            </div>
+          </div>
+
+          <!-- Hero Banner -->
+          <div
+            class="rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-900 to-cyan-900 text-white p-6 lg:p-8 shadow-xl overflow-hidden relative"
+          >
+            <div
+              class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"
+            ></div>
+            <div
+              class="absolute right-16 bottom-0 w-32 h-32 bg-cyan-400/10 rounded-full blur-2xl"
+            ></div>
+
+            <div
+              class="relative z-10 grid grid-cols-1 xl:grid-cols-3 gap-6 items-center"
+            >
+              <div class="xl:col-span-2">
+                <p class="text-sm uppercase tracking-[0.2em] text-white/70">
+                  Featured Workshop
+                </p>
+                <h3 class="text-3xl lg:text-4xl font-bold mt-3">
+                  Build Production-Ready Dashboard Interfaces
+                </h3>
+                <p class="mt-3 text-white/80 max-w-2xl">
+                  A live mentor-led workshop focused on dashboard layouts,
+                  reusable components, responsive structures, and white-label UI
+                  systems using HTML + Tailwind.
+                </p>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <span
+                    class="px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-sm"
+                  >
+                    Live Today
+                  </span>
+                  <span
+                    class="px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-sm"
+                  >
+                    90 Minutes
+                  </span>
+                  <span
+                    class="px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-sm"
+                  >
+                    Intermediate
+                  </span>
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <button
+                    class="px-5 py-3 rounded-2xl bg-white text-slate-900 font-semibold hover:bg-slate-100 transition"
+                  >
+                    Join Workshop
+                  </button>
+                  <button
+                    class="px-5 py-3 rounded-2xl bg-white/10 border border-white/15 font-semibold hover:bg-white/15 transition"
+                  >
+                    View Agenda
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="rounded-3xl bg-white/10 backdrop-blur border border-white/10 p-5"
+              >
+                <p class="text-sm text-white/70">Session Snapshot</p>
+                <div class="mt-4 space-y-4">
+                  <div class="flex items-center justify-between">
+                    <span class="text-white/80">Starts In</span>
+                    <span class="font-semibold">02h 15m</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-white/80">Mentor</span>
+                    <span class="font-semibold">Kavya Nair</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-white/80">Available Seats</span>
+                    <span class="font-semibold">18 / 40</span>
+                  </div>
+                  <div class="pt-2">
+                    <div class="flex justify-between text-sm mb-2">
+                      <span class="text-white/80">Registration Filled</span>
+                      <span class="font-semibold">55%</span>
+                    </div>
+                    <div class="h-2 bg-white/15 rounded-full overflow-hidden">
+                      <div class="h-full w-[55%] bg-white rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filters -->
+          <div
+            class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
+          >
+            <div class="flex flex-col 2xl:flex-row 2xl:items-center gap-4">
+              <div class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <select
+                  class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option>All Workshop Types</option>
+                  <option>Mentor-led</option>
+                  <option>Practice Sessions</option>
+                  <option>Mock Interviews</option>
+                  <option>Project Reviews</option>
+                </select>
+
+                <select
+                  class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option>All Levels</option>
+                  <option>Beginner</option>
+                  <option>Intermediate</option>
+                  <option>Advanced</option>
+                </select>
+
+                <select
+                  class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option>Sort by Upcoming</option>
+                  <option>Most Popular</option>
+                  <option>Newest Added</option>
+                  <option>Limited Seats</option>
+                </select>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <button
+                  class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold"
+                >
+                  All
+                </button>
+                <button
+                  class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200"
+                >
+                  Today
+                </button>
+                <button
+                  class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200"
+                >
+                  This Week
+                </button>
+                <button
+                  class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200"
+                >
+                  Registered
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Grid -->
+          <div class="grid grid-cols-1 2xl:grid-cols-3 gap-6">
+            <!-- Left Main Content -->
+            <div class="2xl:col-span-2 space-y-6">
+              <!-- Stats -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                  class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
+                >
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <p class="text-sm text-slate-500">Registered Sessions</p>
+                      <h3 class="text-3xl font-bold mt-2">06</h3>
+                    </div>
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center"
+                    >
+                      🎥
+                    </div>
+                  </div>
+                  <p class="mt-4 text-sm text-emerald-600 font-medium">
+                    3 happening this week
+                  </p>
+                </div>
+
+                <div
+                  class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
+                >
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <p class="text-sm text-slate-500">Completed Workshops</p>
+                      <h3 class="text-3xl font-bold mt-2">14</h3>
+                    </div>
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center"
+                    >
+                      🏅
+                    </div>
+                  </div>
+                  <p class="mt-4 text-sm text-emerald-600 font-medium">
+                    Excellent participation
+                  </p>
+                </div>
+
+                <div
+                  class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
+                >
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <p class="text-sm text-slate-500">Live Attendance</p>
+                      <h3 class="text-3xl font-bold mt-2">92%</h3>
+                    </div>
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center"
+                    >
+                      📈
+                    </div>
+                  </div>
+                  <p class="mt-4 text-sm text-emerald-600 font-medium">
+                    Above cohort average
+                  </p>
+                </div>
+              </div>
+
+              <!-- Workshop Cards -->
+              <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div
+                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
+                >
+                  <div
+                    class="h-44 bg-gradient-to-br from-indigo-500 via-violet-500 to-cyan-500 p-5 text-white flex flex-col justify-between"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
+                      >
+                        Mentor-led
+                      </span>
+                      <span class="text-sm font-medium">Today • 7:00 PM</span>
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold">
+                        Frontend Architecture Review
+                      </h3>
+                      <p class="text-white/80 text-sm mt-2">
+                        Learn how to structure scalable UI systems and dashboard
+                        layouts.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="p-5">
+                    <div
+                      class="flex items-center justify-between text-sm text-slate-500"
+                    >
+                      <span>Mentor: Kavya Nair</span>
+                      <span>18 Seats Left</span>
+                    </div>
+
+                    <div
+                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
+                    >
+                      <div
+                        class="h-full w-[55%] bg-indigo-500 rounded-full"
+                      ></div>
+                    </div>
+
+                    <div class="mt-5 flex items-center justify-between">
+                      <div>
+                        <p class="font-semibold">Duration: 90 Minutes</p>
+                        <p class="text-sm text-slate-500">Registration open</p>
+                      </div>
+                      <button
+                        class="px-4 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
+                      >
+                        Join Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
+                >
+                  <div
+                    class="h-44 bg-gradient-to-br from-slate-900 via-slate-800 to-cyan-700 p-5 text-white flex flex-col justify-between"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
+                      >
+                        Practice
+                      </span>
+                      <span class="text-sm font-medium"
+                        >Tomorrow • 6:00 PM</span
+                      >
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold">
+                        Logic Sprint Live Practice
+                      </h3>
+                      <p class="text-white/80 text-sm mt-2">
+                        Solve real-time guided logic problems with mentor hints
+                        and reviews.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="p-5">
+                    <div
+                      class="flex items-center justify-between text-sm text-slate-500"
+                    >
+                      <span>Mentor: Rohan Mehta</span>
+                      <span>8 Seats Left</span>
+                    </div>
+
+                    <div
+                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
+                    >
+                      <div
+                        class="h-full w-[80%] bg-cyan-500 rounded-full"
+                      ></div>
+                    </div>
+
+                    <div class="mt-5 flex items-center justify-between">
+                      <div>
+                        <p class="font-semibold">Duration: 60 Minutes</p>
+                        <p class="text-sm text-slate-500">Filling fast</p>
+                      </div>
+                      <button
+                        class="px-4 py-2.5 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 transition"
+                      >
+                        Reserve Seat
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
+                >
+                  <div
+                    class="h-44 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 p-5 text-white flex flex-col justify-between"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
+                      >
+                        Mock Interview
+                      </span>
+                      <span class="text-sm font-medium">Friday • 11:30 AM</span>
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold">
+                        Interview Readiness Mock Round
+                      </h3>
+                      <p class="text-white/80 text-sm mt-2">
+                        Practice structured interview rounds and receive live
+                        feedback.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="p-5">
+                    <div
+                      class="flex items-center justify-between text-sm text-slate-500"
+                    >
+                      <span>Mentor: Nisha Patel</span>
+                      <span>12 Seats Left</span>
+                    </div>
+
+                    <div
+                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
+                    >
+                      <div
+                        class="h-full w-[70%] bg-emerald-500 rounded-full"
+                      ></div>
+                    </div>
+
+                    <div class="mt-5 flex items-center justify-between">
+                      <div>
+                        <p class="font-semibold">Duration: 75 Minutes</p>
+                        <p class="text-sm text-slate-500">Includes Q&A</p>
+                      </div>
+                      <button
+                        class="px-4 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition"
+                      >
+                        Register
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
+                >
+                  <div
+                    class="h-44 bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 p-5 text-white flex flex-col justify-between"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
+                      >
+                        Project Review
+                      </span>
+                      <span class="text-sm font-medium"
+                        >Saturday • 5:30 PM</span
+                      >
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold">
+                        Portfolio Review Workshop
+                      </h3>
+                      <p class="text-white/80 text-sm mt-2">
+                        Get live feedback on your project structure, UX, and
+                        presentation.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="p-5">
+                    <div
+                      class="flex items-center justify-between text-sm text-slate-500"
+                    >
+                      <span>Mentor: Aditya Sharma</span>
+                      <span>22 Seats Left</span>
+                    </div>
+
+                    <div
+                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
+                    >
+                      <div
+                        class="h-full w-[45%] bg-amber-500 rounded-full"
+                      ></div>
+                    </div>
+
+                    <div class="mt-5 flex items-center justify-between">
+                      <div>
+                        <p class="font-semibold">Duration: 120 Minutes</p>
+                        <p class="text-sm text-slate-500">
+                          Hands-on review format
+                        </p>
+                      </div>
+                      <button
+                        class="px-4 py-2.5 rounded-xl bg-amber-500 text-white font-semibold hover:bg-amber-600 transition"
+                      >
+                        Book Slot
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Past Sessions -->
+              <div
+                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
+              >
+                <div
+                  class="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+                >
+                  <div>
+                    <h3 class="text-2xl font-bold">Recently Attended</h3>
+                    <p class="text-sm text-slate-500 mt-1">
+                      Review your recent live learning activity
+                    </p>
+                  </div>
+                  <button
+                    class="px-5 py-3 rounded-2xl bg-slate-100 font-semibold hover:bg-slate-200 transition"
+                  >
+                    View Session History
+                  </button>
+                </div>
+
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div
+                    class="rounded-2xl bg-slate-50 p-4 border border-slate-200"
+                  >
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl"
+                    >
+                      📹
+                    </div>
+                    <h4 class="font-semibold mt-4">
+                      Responsive Layout Deep Dive
+                    </h4>
+                    <p class="text-sm text-slate-500 mt-2">
+                      Completed • 88 minutes attended
+                    </p>
+                  </div>
+
+                  <div
+                    class="rounded-2xl bg-slate-50 p-4 border border-slate-200"
+                  >
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-xl"
+                    >
+                      🧠
+                    </div>
+                    <h4 class="font-semibold mt-4">Logic Patterns Workshop</h4>
+                    <p class="text-sm text-slate-500 mt-2">
+                      Completed • 64 minutes attended
+                    </p>
+                  </div>
+
+                  <div
+                    class="rounded-2xl bg-slate-50 p-4 border border-slate-200"
+                  >
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl"
+                    >
+                      🎤
+                    </div>
+                    <h4 class="font-semibold mt-4">Mock Interview Clinic</h4>
+                    <p class="text-sm text-slate-500 mt-2">
+                      Completed • Mentor feedback shared
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Sidebar Content -->
+            <div class="space-y-6">
+              <!-- Schedule Timeline -->
+              <div
+                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
+              >
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold">Today’s Schedule</h3>
+                  <span
+                    class="text-xs font-semibold px-2 py-1 rounded-full bg-indigo-100 text-indigo-700"
+                  >
+                    Live
+                  </span>
+                </div>
+
+                <div class="mt-6 space-y-5">
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <div
+                        class="w-4 h-4 rounded-full bg-emerald-500 mt-1"
+                      ></div>
+                      <div class="w-0.5 flex-1 bg-slate-200 mt-2"></div>
+                    </div>
+                    <div class="pb-4">
+                      <p class="font-semibold">UI Systems Fundamentals</p>
+                      <p class="text-sm text-slate-500 mt-1">
+                        05:00 PM - Completed
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <div
+                        class="w-4 h-4 rounded-full bg-indigo-500 mt-1"
+                      ></div>
+                      <div class="w-0.5 flex-1 bg-slate-200 mt-2"></div>
+                    </div>
+                    <div class="pb-4">
+                      <p class="font-semibold">Frontend Architecture Review</p>
+                      <p class="text-sm text-slate-500 mt-1">
+                        07:00 PM - Starting soon
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <div class="w-4 h-4 rounded-full bg-slate-300 mt-1"></div>
+                    </div>
+                    <div>
+                      <p class="font-semibold text-slate-600">
+                        Mentor Q&A Lounge
+                      </p>
+                      <p class="text-sm text-slate-500 mt-1">
+                        08:45 PM - Optional session
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mentor Note -->
+              <div
+                class="rounded-3xl bg-gradient-to-br from-indigo-600 via-violet-600 to-cyan-600 p-6 text-white shadow-xl"
+              >
+                <p class="text-sm text-white/80">Mentor Note</p>
+                <h3 class="text-2xl font-bold mt-2">
+                  Attend Consistently for Faster Growth
+                </h3>
+                <p class="mt-3 text-white/85 text-sm">
+                  Learners who join at least 2 live workshops per week tend to
+                  retain concepts better and perform stronger in practice
+                  rounds.
+                </p>
+                <button
+                  class="mt-5 px-5 py-3 rounded-2xl bg-white text-indigo-700 font-semibold hover:bg-slate-100 transition"
+                >
+                  View My Schedule
+                </button>
+              </div>
+
+              <!-- Attendance Stats -->
+              <div
+                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
+              >
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold">Attendance Insights</h3>
+                  <span class="text-sm font-semibold text-slate-500"
+                    >This Month</span
+                  >
+                </div>
+
+                <div class="mt-5 space-y-4">
+                  <div>
+                    <div class="flex justify-between text-sm mb-2">
+                      <span>Live Participation</span>
+                      <span>92%</span>
+                    </div>
+                    <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div
+                        class="h-full w-[92%] bg-indigo-500 rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between text-sm mb-2">
+                      <span>Q&A Involvement</span>
+                      <span>68%</span>
+                    </div>
+                    <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div
+                        class="h-full w-[68%] bg-cyan-500 rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between text-sm mb-2">
+                      <span>Workshop Completion</span>
+                      <span>84%</span>
+                    </div>
+                    <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div
+                        class="h-full w-[84%] bg-emerald-500 rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Upcoming Mentors -->
+              <div
+                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
+              >
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold">Featured Mentors</h3>
+                  <a href="#" class="text-sm font-semibold text-indigo-600"
+                    >See all</a
+                  >
+                </div>
+
+                <div class="mt-5 space-y-4">
+                  <div
+                    class="rounded-2xl bg-slate-50 border border-slate-200 p-4"
+                  >
+                    <p class="font-semibold">Kavya Nair</p>
+                    <p class="text-sm text-slate-500 mt-1">
+                      Frontend Systems & UI Architecture
+                    </p>
+                  </div>
+
+                  <div
+                    class="rounded-2xl bg-slate-50 border border-slate-200 p-4"
+                  >
+                    <p class="font-semibold">Rohan Mehta</p>
+                    <p class="text-sm text-slate-500 mt-1">
+                      Logic Building & Practice Sessions
+                    </p>
+                  </div>
+
+                  <div
+                    class="rounded-2xl bg-slate-50 border border-slate-200 p-4"
+                  >
+                    <p class="font-semibold">Nisha Patel</p>
+                    <p class="text-sm text-slate-500 mt-1">
+                      Mock Interviews & Communication
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="px-6 lg:px-8 py-4 border-t border-slate-200 bg-white">
+          <div
+            class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-sm text-slate-500"
+          >
+            <p>© 2026 LearnX Studio. All rights reserved.</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#" class="hover:text-slate-800">Help Center</a>
+              <a href="#" class="hover:text-slate-800">Privacy</a>
+              <a href="#" class="hover:text-slate-800">Terms</a>
+              <a href="#" class="hover:text-slate-800">Support</a>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

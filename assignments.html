@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignments - White Label LMS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body data-page="assignments" class="bg-slate-100 text-slate-900">
+    <div class="min-h-screen flex">
+      <!-- Sidebar -->
+      <div id="sidebar-container"></div>
+
+      <!-- Main -->
+      <main class="app-main flex-1 min-w-0 flex flex-col">
+        <!-- Topbar -->
+        <header class="bg-white border-b border-slate-200 px-6 lg:px-8 py-4">
+          <div
+            class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
+          >
+            <div class="flex-1 max-w-2xl">
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="Search assignments, modules, mentors..."
+                  class="w-full pl-12 pr-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                <span
+                  class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+                  >🔎</span
+                >
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <button
+                class="w-11 h-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-slate-50"
+              >
+                🔔
+              </button>
+              <button
+                class="w-11 h-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-slate-50"
+              >
+                ⚙️
+              </button>
+              <div
+                class="flex items-center gap-3 bg-white border border-slate-200 rounded-2xl px-3 py-2 shadow-sm"
+              >
+                <div
+                  class="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-500 to-cyan-500 text-white flex items-center justify-center font-bold"
+                >
+                  AR
+                </div>
+                <div>
+                  <p class="font-semibold text-sm">Aarav Reddy</p>
+                  <p class="text-xs text-slate-500">Student Workspace</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Page Content -->
+        <section class="p-6 lg:p-8 space-y-8">
+          <!-- Page Header -->
+          <div
+            class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-5"
+          >
+            <div>
+              <p class="text-sm font-semibold text-indigo-600">Task Center</p>
+              <h2 class="text-3xl lg:text-4xl font-bold mt-1">Assignments</h2>
+              <p class="text-slate-500 mt-2 max-w-3xl">
+                Track pending submissions, review deadlines, manage mentor
+                feedback, and complete practice-based assignments designed to
+                strengthen your learning outcomes.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+              <button
+                class="px-5 py-3 rounded-2xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
+              >
+                View Pending Tasks
+              </button>
+              <button
+                class="px-5 py-3 rounded-2xl bg-white border border-slate-200 font-semibold hover:bg-slate-50 transition"
+              >
+                Submission History
+              </button>
+            </div>
+          </div>
+
+          <!-- Hero Banner -->
+          <div
+            class="rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-900 to-cyan-900 text-white p-6 lg:p-8 shadow-xl overflow-hidden relative"
+          >
+            <div
+              class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"
+            ></div>
+            <div
+              class="absolute right-16 bottom-0 w-32 h-32 bg-cyan-400/10 rounded-full blur-2xl"
+            ></div>
+
+            <div
+              class="relative z-10 grid grid-cols-1 xl:grid-cols-3 gap-6 items-center"
+            >
+              <div class="xl:col-span-2">
+                <p class="text-sm uppercase tracking-[0.2em] text-white/70">
+                  Priority Assignment
+                </p>
+                <h3 class="text-3xl lg:text-4xl font-bold mt-3">
+                  Build a Responsive Admin Dashboard
+                </h3>
+                <p class="mt-3 text-white/80 max-w-2xl">
+                  Create a fully responsive dashboard layout using reusable
+                  cards, filters, and a consistent design system with HTML +
+                  Tailwind. Focus on spacing, hierarchy, and white-label
+                  usability.
+                </p>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <span
+                    class="px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-sm"
+                  >
+                    UI Assignment
+                  </span>
+                  <span
+                    class="px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-sm"
+                  >
+                    Due in 2 Days
+                  </span>
+                  <span
+                    class="px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-sm"
+                  >
+                    Intermediate
+                  </span>
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <button
+                    class="px-5 py-3 rounded-2xl bg-white text-slate-900 font-semibold hover:bg-slate-100 transition"
+                  >
+                    Continue Assignment
+                  </button>
+                  <button
+                    class="px-5 py-3 rounded-2xl bg-white/10 border border-white/15 font-semibold hover:bg-white/15 transition"
+                  >
+                    View Requirements
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="rounded-3xl bg-white/10 backdrop-blur border border-white/10 p-5"
+              >
+                <p class="text-sm text-white/70">Submission Snapshot</p>
+                <div class="mt-4 space-y-4">
+                  <div class="flex items-center justify-between">
+                    <span class="text-white/80">Status</span>
+                    <span class="font-semibold">In Progress</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-white/80">Deadline</span>
+                    <span class="font-semibold">May 12</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-white/80">Mentor Review</span>
+                    <span class="font-semibold">Pending</span>
+                  </div>
+                  <div class="pt-2">
+                    <div class="flex justify-between text-sm mb-2">
+                      <span class="text-white/80">Completion Progress</span>
+                      <span class="font-semibold">64%</span>
+                    </div>
+                    <div class="h-2 bg-white/15 rounded-full overflow-hidden">
+                      <div class="h-full w-[64%] bg-white rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filters -->
+          <div
+            class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
+          >
+            <div class="flex flex-col 2xl:flex-row 2xl:items-center gap-4">
+              <div class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <select
+                  class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option>All Assignment Types</option>
+                  <option>UI Tasks</option>
+                  <option>Practice Sets</option>
+                  <option>Project Tasks</option>
+                  <option>Mock Submissions</option>
+                </select>
+
+                <select
+                  class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option>All Status</option>
+                  <option>Pending</option>
+                  <option>In Progress</option>
+                  <option>Submitted</option>
+                  <option>Reviewed</option>
+                </select>
+
+                <select
+                  class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option>Sort by Deadline</option>
+                  <option>Highest Priority</option>
+                  <option>Recently Assigned</option>
+                  <option>Recently Reviewed</option>
+                </select>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <button
+                  class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold"
+                >
+                  All
+                </button>
+                <button
+                  class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200"
+                >
+                  Due Soon
+                </button>
+                <button
+                  class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200"
+                >
+                  Submitted
+                </button>
+                <button
+                  class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200"
+                >
+                  Reviewed
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Grid -->
+          <div class="grid grid-cols-1 2xl:grid-cols-3 gap-6">
+            <!-- Left Main Content -->
+            <div class="2xl:col-span-2 space-y-6">
+              <!-- Stats -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                  class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
+                >
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <p class="text-sm text-slate-500">Pending Tasks</p>
+                      <h3 class="text-3xl font-bold mt-2">05</h3>
+                    </div>
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center"
+                    >
+                      📝
+                    </div>
+                  </div>
+                  <p class="mt-4 text-sm text-amber-600 font-medium">
+                    2 due this week
+                  </p>
+                </div>
+
+                <div
+                  class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
+                >
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <p class="text-sm text-slate-500">Submitted</p>
+                      <h3 class="text-3xl font-bold mt-2">18</h3>
+                    </div>
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center"
+                    >
+                      📤
+                    </div>
+                  </div>
+                  <p class="mt-4 text-sm text-emerald-600 font-medium">
+                    Strong submission consistency
+                  </p>
+                </div>
+
+                <div
+                  class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
+                >
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <p class="text-sm text-slate-500">Avg. Review Score</p>
+                      <h3 class="text-3xl font-bold mt-2">88%</h3>
+                    </div>
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center"
+                    >
+                      🏅
+                    </div>
+                  </div>
+                  <p class="mt-4 text-sm text-emerald-600 font-medium">
+                    Above cohort average
+                  </p>
+                </div>
+              </div>
+
+              <!-- Assignment Cards -->
+              <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div
+                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
+                >
+                  <div
+                    class="h-44 bg-gradient-to-br from-indigo-500 via-violet-500 to-cyan-500 p-5 text-white flex flex-col justify-between"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
+                      >
+                        UI Task
+                      </span>
+                      <span class="text-sm font-medium">Due in 2 Days</span>
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold">
+                        Dashboard Layout Challenge
+                      </h3>
+                      <p class="text-white/80 text-sm mt-2">
+                        Build a clean dashboard interface using cards, filters,
+                        and responsive sections.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="p-5">
+                    <div
+                      class="flex items-center justify-between text-sm text-slate-500"
+                    >
+                      <span>Assigned by: Kavya Nair</span>
+                      <span>Priority: High</span>
+                    </div>
+
+                    <div
+                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
+                    >
+                      <div
+                        class="h-full w-[64%] bg-indigo-500 rounded-full"
+                      ></div>
+                    </div>
+
+                    <div class="mt-5 flex items-center justify-between">
+                      <div>
+                        <p class="font-semibold">Progress: 64%</p>
+                        <p class="text-sm text-slate-500">Submission pending</p>
+                      </div>
+                      <button
+                        class="px-4 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
+                      >
+                        Continue
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
+                >
+                  <div
+                    class="h-44 bg-gradient-to-br from-slate-900 via-slate-800 to-cyan-700 p-5 text-white flex flex-col justify-between"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
+                      >
+                        Practice Set
+                      </span>
+                      <span class="text-sm font-medium">Due Tomorrow</span>
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold">
+                        Logic Pattern Assignment
+                      </h3>
+                      <p class="text-white/80 text-sm mt-2">
+                        Complete a structured set of logic questions and explain
+                        your approach.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="p-5">
+                    <div
+                      class="flex items-center justify-between text-sm text-slate-500"
+                    >
+                      <span>Assigned by: Rohan Mehta</span>
+                      <span>Priority: Medium</span>
+                    </div>
+
+                    <div
+                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
+                    >
+                      <div
+                        class="h-full w-[35%] bg-cyan-500 rounded-full"
+                      ></div>
+                    </div>
+
+                    <div class="mt-5 flex items-center justify-between">
+                      <div>
+                        <p class="font-semibold">Progress: 35%</p>
+                        <p class="text-sm text-slate-500">
+                          Need 12 more questions
+                        </p>
+                      </div>
+                      <button
+                        class="px-4 py-2.5 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 transition"
+                      >
+                        Resume
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
+                >
+                  <div
+                    class="h-44 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 p-5 text-white flex flex-col justify-between"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
+                      >
+                        Project Task
+                      </span>
+                      <span class="text-sm font-medium">Submitted</span>
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold">
+                        Portfolio Case Study Submission
+                      </h3>
+                      <p class="text-white/80 text-sm mt-2">
+                        Submit a project breakdown including design decisions
+                        and component structure.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="p-5">
+                    <div
+                      class="flex items-center justify-between text-sm text-slate-500"
+                    >
+                      <span>Reviewed by: Nisha Patel</span>
+                      <span>Score: 91%</span>
+                    </div>
+
+                    <div
+                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
+                    >
+                      <div
+                        class="h-full w-[100%] bg-emerald-500 rounded-full"
+                      ></div>
+                    </div>
+
+                    <div class="mt-5 flex items-center justify-between">
+                      <div>
+                        <p class="font-semibold">Status: Reviewed</p>
+                        <p class="text-sm text-slate-500">Feedback available</p>
+                      </div>
+                      <button
+                        class="px-4 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition"
+                      >
+                        View Feedback
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
+                >
+                  <div
+                    class="h-44 bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 p-5 text-white flex flex-col justify-between"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
+                      >
+                        Mock Submission
+                      </span>
+                      <span class="text-sm font-medium">Due in 4 Days</span>
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold">
+                        Interview Response Writing Task
+                      </h3>
+                      <p class="text-white/80 text-sm mt-2">
+                        Draft structured responses for common interview
+                        scenarios and review them.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="p-5">
+                    <div
+                      class="flex items-center justify-between text-sm text-slate-500"
+                    >
+                      <span>Assigned by: Aditya Sharma</span>
+                      <span>Priority: Medium</span>
+                    </div>
+
+                    <div
+                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
+                    >
+                      <div
+                        class="h-full w-[18%] bg-amber-500 rounded-full"
+                      ></div>
+                    </div>
+
+                    <div class="mt-5 flex items-center justify-between">
+                      <div>
+                        <p class="font-semibold">Progress: 18%</p>
+                        <p class="text-sm text-slate-500">Outline started</p>
+                      </div>
+                      <button
+                        class="px-4 py-2.5 rounded-xl bg-amber-500 text-white font-semibold hover:bg-amber-600 transition"
+                      >
+                        Start
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recent Reviews -->
+              <div
+                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
+              >
+                <div
+                  class="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+                >
+                  <div>
+                    <h3 class="text-2xl font-bold">Recent Mentor Reviews</h3>
+                    <p class="text-sm text-slate-500 mt-1">
+                      Check recent evaluations and improvement notes
+                    </p>
+                  </div>
+                  <button
+                    class="px-5 py-3 rounded-2xl bg-slate-100 font-semibold hover:bg-slate-200 transition"
+                  >
+                    View All Reviews
+                  </button>
+                </div>
+
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div
+                    class="rounded-2xl bg-slate-50 p-4 border border-slate-200"
+                  >
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl"
+                    >
+                      💬
+                    </div>
+                    <h4 class="font-semibold mt-4">Layout Consistency</h4>
+                    <p class="text-sm text-slate-500 mt-2">
+                      Good structure, improve section spacing.
+                    </p>
+                  </div>
+
+                  <div
+                    class="rounded-2xl bg-slate-50 p-4 border border-slate-200"
+                  >
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-xl"
+                    >
+                      📐
+                    </div>
+                    <h4 class="font-semibold mt-4">Component Reusability</h4>
+                    <p class="text-sm text-slate-500 mt-2">
+                      Strong approach, extract common cards next.
+                    </p>
+                  </div>
+
+                  <div
+                    class="rounded-2xl bg-slate-50 p-4 border border-slate-200"
+                  >
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl"
+                    >
+                      ✅
+                    </div>
+                    <h4 class="font-semibold mt-4">Submission Quality</h4>
+                    <p class="text-sm text-slate-500 mt-2">
+                      Clear progress and improved visual hierarchy.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Sidebar Content -->
+            <div class="space-y-6">
+              <!-- Deadline Timeline -->
+              <div
+                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
+              >
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold">Upcoming Deadlines</h3>
+                  <span
+                    class="text-xs font-semibold px-2 py-1 rounded-full bg-amber-100 text-amber-700"
+                  >
+                    Due Soon
+                  </span>
+                </div>
+
+                <div class="mt-6 space-y-5">
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <div class="w-4 h-4 rounded-full bg-rose-500 mt-1"></div>
+                      <div class="w-0.5 flex-1 bg-slate-200 mt-2"></div>
+                    </div>
+                    <div class="pb-4">
+                      <p class="font-semibold">Logic Pattern Assignment</p>
+                      <p class="text-sm text-slate-500 mt-1">
+                        Tomorrow • 06:00 PM
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <div class="w-4 h-4 rounded-full bg-amber-500 mt-1"></div>
+                      <div class="w-0.5 flex-1 bg-slate-200 mt-2"></div>
+                    </div>
+                    <div class="pb-4">
+                      <p class="font-semibold">Dashboard Layout Challenge</p>
+                      <p class="text-sm text-slate-500 mt-1">
+                        In 2 Days • 09:00 PM
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <div class="w-4 h-4 rounded-full bg-slate-300 mt-1"></div>
+                    </div>
+                    <div>
+                      <p class="font-semibold text-slate-600">
+                        Interview Response Writing
+                      </p>
+                      <p class="text-sm text-slate-500 mt-1">
+                        In 4 Days • 08:00 PM
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mentor Note -->
+              <div
+                class="rounded-3xl bg-gradient-to-br from-indigo-600 via-violet-600 to-cyan-600 p-6 text-white shadow-xl"
+              >
+                <p class="text-sm text-white/80">Mentor Note</p>
+                <h3 class="text-2xl font-bold mt-2">
+                  Submit Before the Deadline Window
+                </h3>
+                <p class="mt-3 text-white/85 text-sm">
+                  Early submissions give you more room for review cycles and
+                  feedback-driven improvements before the next milestone.
+                </p>
+                <button
+                  class="mt-5 px-5 py-3 rounded-2xl bg-white text-indigo-700 font-semibold hover:bg-slate-100 transition"
+                >
+                  View My Plan
+                </button>
+              </div>
+
+              <!-- Submission Insights -->
+              <div
+                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
+              >
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold">Submission Insights</h3>
+                  <span class="text-sm font-semibold text-slate-500"
+                    >This Month</span
+                  >
+                </div>
+
+                <div class="mt-5 space-y-4">
+                  <div>
+                    <div class="flex justify-between text-sm mb-2">
+                      <span>On-Time Submissions</span>
+                      <span>89%</span>
+                    </div>
+                    <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div
+                        class="h-full w-[89%] bg-indigo-500 rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between text-sm mb-2">
+                      <span>Review Approval</span>
+                      <span>84%</span>
+                    </div>
+                    <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div
+                        class="h-full w-[84%] bg-cyan-500 rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between text-sm mb-2">
+                      <span>Revision Accuracy</span>
+                      <span>76%</span>
+                    </div>
+                    <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div
+                        class="h-full w-[76%] bg-emerald-500 rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Review Queue -->
+              <div
+                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
+              >
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold">Review Queue</h3>
+                  <a href="#" class="text-sm font-semibold text-indigo-600"
+                    >See all</a
+                  >
+                </div>
+
+                <div class="mt-5 space-y-4">
+                  <div
+                    class="rounded-2xl bg-slate-50 border border-slate-200 p-4"
+                  >
+                    <p class="font-semibold">Portfolio Case Study</p>
+                    <p class="text-sm text-slate-500 mt-1">
+                      Reviewed • Feedback shared
+                    </p>
+                  </div>
+
+                  <div
+                    class="rounded-2xl bg-slate-50 border border-slate-200 p-4"
+                  >
+                    <p class="font-semibold">Dashboard Layout Challenge</p>
+                    <p class="text-sm text-slate-500 mt-1">
+                      Awaiting submission
+                    </p>
+                  </div>
+
+                  <div
+                    class="rounded-2xl bg-slate-50 border border-slate-200 p-4"
+                  >
+                    <p class="font-semibold">Interview Writing Task</p>
+                    <p class="text-sm text-slate-500 mt-1">Draft in progress</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="px-6 lg:px-8 py-4 border-t border-slate-200 bg-white">
+          <div
+            class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-sm text-slate-500"
+          >
+            <p>© 2026 LearnX Studio. All rights reserved.</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#" class="hover:text-slate-800">Help Center</a>
+              <a href="#" class="hover:text-slate-800">Privacy</a>
+              <a href="#" class="hover:text-slate-800">Terms</a>
+              <a href="#" class="hover:text-slate-800">Support</a>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
