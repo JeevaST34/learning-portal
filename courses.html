@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Paths - White Label LMS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body data-page="courses" class="bg-slate-100 text-slate-900">
+    <div class="min-h-screen flex">
+      <!-- Sidebar -->
+      <div id="sidebar-container"></div>
+
+      <!-- Main -->
+      <main class="app-main flex-1 min-w-0 flex flex-col">
+        <!-- Topbar -->
+        <header class="bg-white border-b border-slate-200 px-6 lg:px-8 py-4">
+          <div
+            class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
+          >
+            <div class="flex-1 max-w-2xl">
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="Search tracks, modules, mentors..."
+                  class="w-full pl-12 pr-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                <span
+                  class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+                  >🔎</span
+                >
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <button
+                class="w-11 h-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-slate-50"
+              >
+                🔔
+              </button>
+              <button
+                class="w-11 h-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-slate-50"
+              >
+                ⚙️
+              </button>
+              <div
+                class="flex items-center gap-3 bg-white border border-slate-200 rounded-2xl px-3 py-2 shadow-sm"
+              >
+                <div
+                  class="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-500 to-cyan-500 text-white flex items-center justify-center font-bold"
+                >
+                  AR
+                </div>
+                <div>
+                  <p class="font-semibold text-sm">Aarav Reddy</p>
+                  <p class="text-xs text-slate-500">Student Workspace</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Page Content -->
+        <section class="p-6 lg:p-8 space-y-8">
+          <!-- Page Header -->
+          <div
+            class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-5"
+          >
+            <div>
+              <p class="text-sm font-semibold text-indigo-600">
+                Learning Catalog
+              </p>
+              <h2 class="text-3xl lg:text-4xl font-bold mt-1">
+                Explore Your Learning Paths
+              </h2>
+              <p class="text-slate-500 mt-2 max-w-3xl">
+                Browse curated programs, structured tracks, and skill-based
+                modules designed to improve your performance and prepare you for
+                real-world outcomes.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+              <button
+                class="px-5 py-3 rounded-2xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
+              >
+                Browse New Tracks
+              </button>
+              <button
+                class="px-5 py-3 rounded-2xl bg-white border border-slate-200 font-semibold hover:bg-slate-50 transition"
+              >
+                Saved Paths
+              </button>
+            </div>
+          </div>
+
+          <!-- Featured Banner -->
+          <div
+            class="rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-900 to-cyan-900 text-white p-6 lg:p-8 shadow-xl overflow-hidden relative"
+          >
+            <div
+              class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"
+            ></div>
+            <div
+              class="absolute right-16 bottom-0 w-32 h-32 bg-cyan-400/10 rounded-full blur-2xl"
+            ></div>
+
+            <div
+              class="relative z-10 grid grid-cols-1 xl:grid-cols-3 gap-6 items-center"
+            >
+              <div class="xl:col-span-2">
+                <p class="text-sm uppercase tracking-[0.2em] text-white/70">
+                  Featured Path
+                </p>
+                <h3 class="text-3xl lg:text-4xl font-bold mt-3">
+                  Career Acceleration Program
+                </h3>
+                <p class="mt-3 text-white/80 max-w-2xl">
+                  A complete guided path that combines frontend systems, logic
+                  building, mock interviews, and project-driven learning to help
+                  learners become job-ready.
+                </p>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <span
+                    class="px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-sm"
+                    >24 Modules</span
+                  >
+                  <span
+                    class="px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-sm"
+                    >Mentor Guided</span
+                  >
+                  <span
+                    class="px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-sm"
+                    >Intermediate</span
+                  >
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <button
+                    class="px-5 py-3 rounded-2xl bg-white text-slate-900 font-semibold hover:bg-slate-100 transition"
+                  >
+                    Start Learning
+                  </button>
+                  <button
+                    class="px-5 py-3 rounded-2xl bg-white/10 border border-white/15 font-semibold hover:bg-white/15 transition"
+                  >
+                    View Syllabus
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="rounded-3xl bg-white/10 backdrop-blur border border-white/10 p-5"
+              >
+                <p class="text-sm text-white/70">Program Snapshot</p>
+                <div class="mt-4 space-y-4">
+                  <div class="flex items-center justify-between">
+                    <span class="text-white/80">Completion Goal</span>
+                    <span class="font-semibold">8 Weeks</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-white/80">Projects Included</span>
+                    <span class="font-semibold">4</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-white/80">Mock Interviews</span>
+                    <span class="font-semibold">2</span>
+                  </div>
+                  <div class="pt-2">
+                    <div class="flex justify-between text-sm mb-2">
+                      <span class="text-white/80">Learner Interest</span>
+                      <span class="font-semibold">92%</span>
+                    </div>
+                    <div class="h-2 bg-white/15 rounded-full overflow-hidden">
+                      <div class="h-full w-[92%] bg-white rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filters -->
+          <div
+            class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
+          >
+            <div class="flex flex-col 2xl:flex-row 2xl:items-center gap-4">
+              <div class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <select
+                  class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option>All Categories</option>
+                  <option>Development</option>
+                  <option>Design</option>
+                  <option>Interview Prep</option>
+                  <option>Soft Skills</option>
+                </select>
+
+                <select
+                  class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option>All Levels</option>
+                  <option>Beginner</option>
+                  <option>Intermediate</option>
+                  <option>Advanced</option>
+                </select>
+
+                <select
+                  class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option>Sort by Popularity</option>
+                  <option>Newest First</option>
+                  <option>Highest Rated</option>
+                  <option>Shortest Duration</option>
+                </select>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <button
+                  class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold"
+                >
+                  All
+                </button>
+                <button
+                  class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200"
+                >
+                  Trending
+                </button>
+                <button
+                  class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200"
+                >
+                  Mentor-led
+                </button>
+                <button
+                  class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200"
+                >
+                  Short Tracks
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Grid -->
+          <div class="grid grid-cols-1 2xl:grid-cols-3 gap-6">
+            <!-- Left Main Content -->
+            <div class="2xl:col-span-2 space-y-6">
+              <!-- Progress Summary -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                  class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
+                >
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <p class="text-sm text-slate-500">Ongoing Paths</p>
+                      <h3 class="text-3xl font-bold mt-2">03</h3>
+                    </div>
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center"
+                    >
+                      📘
+                    </div>
+                  </div>
+                  <p class="mt-4 text-sm text-emerald-600 font-medium">
+                    2 progressing steadily
+                  </p>
+                </div>
+
+                <div
+                  class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
+                >
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <p class="text-sm text-slate-500">Completed Tracks</p>
+                      <h3 class="text-3xl font-bold mt-2">07</h3>
+                    </div>
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center"
+                    >
+                      🏅
+                    </div>
+                  </div>
+                  <p class="mt-4 text-sm text-emerald-600 font-medium">
+                    Strong completion history
+                  </p>
+                </div>
+
+                <div
+                  class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
+                >
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <p class="text-sm text-slate-500">Avg. Retention</p>
+                      <h3 class="text-3xl font-bold mt-2">89%</h3>
+                    </div>
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center"
+                    >
+                      📈
+                    </div>
+                  </div>
+                  <p class="mt-4 text-sm text-emerald-600 font-medium">
+                    Above peer average
+                  </p>
+                </div>
+              </div>
+
+              <!-- Course Cards -->
+              <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div
+                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
+                >
+                  <div
+                    class="h-44 bg-gradient-to-br from-indigo-500 via-violet-500 to-cyan-500 p-5 text-white flex flex-col justify-between"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
+                        >Development</span
+                      >
+                      <span class="text-sm font-medium">Intermediate</span>
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold">Frontend Systems Lab</h3>
+                      <p class="text-white/80 text-sm mt-2">
+                        Design scalable interfaces and reusable components.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="p-5">
+                    <div
+                      class="flex items-center justify-between text-sm text-slate-500"
+                    >
+                      <span>18 Modules</span>
+                      <span>72% Complete</span>
+                    </div>
+
+                    <div
+                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
+                    >
+                      <div
+                        class="h-full w-[72%] bg-indigo-500 rounded-full"
+                      ></div>
+                    </div>
+
+                    <div class="mt-5 flex items-center justify-between">
+                      <div>
+                        <p class="font-semibold">Mentor: Kavya Nair</p>
+                        <p class="text-sm text-slate-500">
+                          Next session: Tomorrow
+                        </p>
+                      </div>
+                      <button
+                        class="px-4 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
+                      >
+                        Continue
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
+                >
+                  <div
+                    class="h-44 bg-gradient-to-br from-slate-900 via-slate-800 to-cyan-700 p-5 text-white flex flex-col justify-between"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
+                        >Logic</span
+                      >
+                      <span class="text-sm font-medium">Beginner</span>
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold">
+                        Problem Solving Foundations
+                      </h3>
+                      <p class="text-white/80 text-sm mt-2">
+                        Build strong logical thinking with guided practice sets.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="p-5">
+                    <div
+                      class="flex items-center justify-between text-sm text-slate-500"
+                    >
+                      <span>14 Modules</span>
+                      <span>48% Complete</span>
+                    </div>
+
+                    <div
+                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
+                    >
+                      <div
+                        class="h-full w-[48%] bg-cyan-500 rounded-full"
+                      ></div>
+                    </div>
+
+                    <div class="mt-5 flex items-center justify-between">
+                      <div>
+                        <p class="font-semibold">Mentor: Rohan Mehta</p>
+                        <p class="text-sm text-slate-500">
+                          Practice set unlocked
+                        </p>
+                      </div>
+                      <button
+                        class="px-4 py-2.5 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 transition"
+                      >
+                        Resume
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
+                >
+                  <div
+                    class="h-44 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 p-5 text-white flex flex-col justify-between"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
+                        >Career Prep</span
+                      >
+                      <span class="text-sm font-medium">Advanced</span>
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold">
+                        Interview Mastery Track
+                      </h3>
+                      <p class="text-white/80 text-sm mt-2">
+                        Sharpen communication, mock rounds, and confidence.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="p-5">
+                    <div
+                      class="flex items-center justify-between text-sm text-slate-500"
+                    >
+                      <span>10 Modules</span>
+                      <span>90% Complete</span>
+                    </div>
+
+                    <div
+                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
+                    >
+                      <div
+                        class="h-full w-[90%] bg-emerald-500 rounded-full"
+                      ></div>
+                    </div>
+
+                    <div class="mt-5 flex items-center justify-between">
+                      <div>
+                        <p class="font-semibold">Mentor: Nisha Patel</p>
+                        <p class="text-sm text-slate-500">
+                          1 mock interview left
+                        </p>
+                      </div>
+                      <button
+                        class="px-4 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition"
+                      >
+                        Finish Track
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
+                >
+                  <div
+                    class="h-44 bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 p-5 text-white flex flex-col justify-between"
+                  >
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
+                        >Projects</span
+                      >
+                      <span class="text-sm font-medium">Intermediate</span>
+                    </div>
+                    <div>
+                      <h3 class="text-2xl font-bold">Build & Ship Projects</h3>
+                      <p class="text-white/80 text-sm mt-2">
+                        Create portfolio-ready projects with guided reviews.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="p-5">
+                    <div
+                      class="flex items-center justify-between text-sm text-slate-500"
+                    >
+                      <span>16 Modules</span>
+                      <span>12% Complete</span>
+                    </div>
+
+                    <div
+                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
+                    >
+                      <div
+                        class="h-full w-[12%] bg-amber-500 rounded-full"
+                      ></div>
+                    </div>
+
+                    <div class="mt-5 flex items-center justify-between">
+                      <div>
+                        <p class="font-semibold">Mentor: Aditya Sharma</p>
+                        <p class="text-sm text-slate-500">
+                          Project 1 available
+                        </p>
+                      </div>
+                      <button
+                        class="px-4 py-2.5 rounded-xl bg-amber-500 text-white font-semibold hover:bg-amber-600 transition"
+                      >
+                        Start
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recommended Grid -->
+              <div
+                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
+              >
+                <div
+                  class="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+                >
+                  <div>
+                    <h3 class="text-2xl font-bold">Recommended for You</h3>
+                    <p class="text-sm text-slate-500 mt-1">
+                      Based on your progress and learning behavior
+                    </p>
+                  </div>
+                  <button
+                    class="px-5 py-3 rounded-2xl bg-slate-100 font-semibold hover:bg-slate-200 transition"
+                  >
+                    View Recommendations
+                  </button>
+                </div>
+
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div
+                    class="rounded-2xl bg-slate-50 p-4 border border-slate-200"
+                  >
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl"
+                    >
+                      ⚡
+                    </div>
+                    <h4 class="font-semibold mt-4">Speed Coding Drills</h4>
+                    <p class="text-sm text-slate-500 mt-2">
+                      Short exercises to improve speed and accuracy.
+                    </p>
+                  </div>
+
+                  <div
+                    class="rounded-2xl bg-slate-50 p-4 border border-slate-200"
+                  >
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-xl"
+                    >
+                      🧠
+                    </div>
+                    <h4 class="font-semibold mt-4">System Thinking Basics</h4>
+                    <p class="text-sm text-slate-500 mt-2">
+                      Learn structured approaches to solve bigger problems.
+                    </p>
+                  </div>
+
+                  <div
+                    class="rounded-2xl bg-slate-50 p-4 border border-slate-200"
+                  >
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl"
+                    >
+                      🎤
+                    </div>
+                    <h4 class="font-semibold mt-4">
+                      Communication for Interviews
+                    </h4>
+                    <p class="text-sm text-slate-500 mt-2">
+                      Practice clear and confident responses in mock sessions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Sidebar Content -->
+            <div class="space-y-6">
+              <!-- Learning Roadmap -->
+              <div
+                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
+              >
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold">Roadmap Status</h3>
+                  <span
+                    class="text-xs font-semibold px-2 py-1 rounded-full bg-indigo-100 text-indigo-700"
+                    >Active</span
+                  >
+                </div>
+
+                <div class="mt-6 space-y-5">
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <div
+                        class="w-4 h-4 rounded-full bg-emerald-500 mt-1"
+                      ></div>
+                      <div class="w-0.5 flex-1 bg-slate-200 mt-2"></div>
+                    </div>
+                    <div class="pb-4">
+                      <p class="font-semibold">Foundation Phase</p>
+                      <p class="text-sm text-slate-500 mt-1">
+                        Completed core concepts and basic practice sets.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <div
+                        class="w-4 h-4 rounded-full bg-indigo-500 mt-1"
+                      ></div>
+                      <div class="w-0.5 flex-1 bg-slate-200 mt-2"></div>
+                    </div>
+                    <div class="pb-4">
+                      <p class="font-semibold">Skill Building</p>
+                      <p class="text-sm text-slate-500 mt-1">
+                        Currently progressing through guided modules.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <div class="w-4 h-4 rounded-full bg-slate-300 mt-1"></div>
+                      <div class="w-0.5 flex-1 bg-slate-200 mt-2"></div>
+                    </div>
+                    <div class="pb-4">
+                      <p class="font-semibold text-slate-600">
+                        Project Execution
+                      </p>
+                      <p class="text-sm text-slate-500 mt-1">
+                        Apply concepts in portfolio-ready builds.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div class="flex flex-col items-center">
+                      <div class="w-4 h-4 rounded-full bg-slate-300 mt-1"></div>
+                    </div>
+                    <div>
+                      <p class="font-semibold text-slate-600">
+                        Interview Readiness
+                      </p>
+                      <p class="text-sm text-slate-500 mt-1">
+                        Final preparation with mentor reviews.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mentor Suggestion -->
+              <div
+                class="rounded-3xl bg-gradient-to-br from-indigo-600 via-violet-600 to-cyan-600 p-6 text-white shadow-xl"
+              >
+                <p class="text-sm text-white/80">Mentor Suggestion</p>
+                <h3 class="text-2xl font-bold mt-2">
+                  Focus on One Core Track This Week
+                </h3>
+                <p class="mt-3 text-white/85 text-sm">
+                  Complete your current active modules before starting a new
+                  path to improve retention and momentum.
+                </p>
+                <button
+                  class="mt-5 px-5 py-3 rounded-2xl bg-white text-indigo-700 font-semibold hover:bg-slate-100 transition"
+                >
+                  View My Plan
+                </button>
+              </div>
+
+              <!-- Upcoming Sessions -->
+              <div
+                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
+              >
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold">Upcoming Sessions</h3>
+                  <a href="#" class="text-sm font-semibold text-indigo-600"
+                    >See all</a
+                  >
+                </div>
+
+                <div class="mt-5 space-y-4">
+                  <div
+                    class="rounded-2xl bg-slate-50 border border-slate-200 p-4"
+                  >
+                    <p class="font-semibold">UI Architecture Review</p>
+                    <p class="text-sm text-slate-500 mt-1">
+                      Tomorrow • 07:00 PM
+                    </p>
+                  </div>
+
+                  <div
+                    class="rounded-2xl bg-slate-50 border border-slate-200 p-4"
+                  >
+                    <p class="font-semibold">Logic Sprint Practice</p>
+                    <p class="text-sm text-slate-500 mt-1">Friday • 06:00 PM</p>
+                  </div>
+
+                  <div
+                    class="rounded-2xl bg-slate-50 border border-slate-200 p-4"
+                  >
+                    <p class="font-semibold">Mock Interview Round</p>
+                    <p class="text-sm text-slate-500 mt-1">
+                      Saturday • 11:30 AM
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Skills Snapshot -->
+              <div
+                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
+              >
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-bold">Skills Snapshot</h3>
+                  <span class="text-sm font-semibold text-slate-500"
+                    >Updated</span
+                  >
+                </div>
+
+                <div class="mt-5 space-y-4">
+                  <div>
+                    <div class="flex justify-between text-sm mb-2">
+                      <span>Interface Design</span>
+                      <span>82%</span>
+                    </div>
+                    <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div
+                        class="h-full w-[82%] bg-indigo-500 rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between text-sm mb-2">
+                      <span>Logic Building</span>
+                      <span>74%</span>
+                    </div>
+                    <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div
+                        class="h-full w-[74%] bg-cyan-500 rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between text-sm mb-2">
+                      <span>Project Execution</span>
+                      <span>58%</span>
+                    </div>
+                    <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div
+                        class="h-full w-[58%] bg-emerald-500 rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between text-sm mb-2">
+                      <span>Communication</span>
+                      <span>67%</span>
+                    </div>
+                    <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div
+                        class="h-full w-[67%] bg-amber-500 rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="px-6 lg:px-8 py-4 border-t border-slate-200 bg-white">
+          <div
+            class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-sm text-slate-500"
+          >
+            <p>© 2026 LearnX Studio. All rights reserved.</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#" class="hover:text-slate-800">Help Center</a>
+              <a href="#" class="hover:text-slate-800">Privacy</a>
+              <a href="#" class="hover:text-slate-800">Terms</a>
+              <a href="#" class="hover:text-slate-800">Support</a>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
