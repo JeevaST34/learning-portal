@@ -192,6 +192,215 @@
         background: rgba(91, 92, 240, 0.06);
       }
     </style>
+    <!-- Style -->
+
+    <style>
+      /* =========================================================
+     WHITE-LABEL MARKETPLACE CARD UI
+  ========================================================== */
+      .catalog-grid {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 1.5rem;
+      }
+
+      @media (min-width: 768px) {
+        .catalog-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .catalog-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 1536px) {
+        .catalog-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+
+      .catalog-card {
+        position: relative;
+        border-radius: 26px;
+        background: #ffffff;
+        border: 1px solid #e8edf7;
+        box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+        overflow: hidden;
+        transition:
+          transform 0.28s ease,
+          box-shadow 0.28s ease,
+          border-color 0.28s ease;
+      }
+
+      .catalog-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 22px 48px rgba(15, 23, 42, 0.12);
+        border-color: #dfe5ff;
+      }
+
+      .catalog-image-wrap {
+        position: relative;
+        padding: 12px 12px 0;
+      }
+
+      .catalog-image {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        height: 210px;
+        background: linear-gradient(135deg, #eef2ff, #e0f2fe);
+      }
+
+      .catalog-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.45s ease;
+      }
+
+      .catalog-card:hover .catalog-image img {
+        transform: scale(1.05);
+      }
+
+      .catalog-badge {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        font-size: 11px;
+        font-weight: 700;
+        color: #334155;
+      }
+
+      .catalog-badge.primary {
+        color: #4f46e5;
+      }
+
+      .catalog-body {
+        padding: 18px 16px 16px;
+      }
+
+      .catalog-title {
+        font-size: 1.2rem;
+        line-height: 1.45;
+        font-weight: 800;
+        color: #111827;
+        min-height: 58px;
+      }
+
+      .catalog-meta {
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        row-gap: 10px;
+        color: #6b7280;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .catalog-meta-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .catalog-meta-icon {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        background: #f1f5f9;
+        color: #64748b;
+      }
+
+      .catalog-footer {
+        margin-top: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .catalog-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: none;
+        border-radius: 16px;
+        padding: 12px 18px;
+        background: #0f172a;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 700;
+        transition: all 0.25s ease;
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+      }
+
+      .catalog-btn:hover {
+        background: #111827;
+        transform: translateY(-1px);
+      }
+
+      .catalog-rating {
+        width: 48px;
+        height: 48px;
+        border-radius: 999px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 16px;
+        color: #111827;
+        background: conic-gradient(#f59e0b 0deg 300deg, #e5e7eb 300deg 360deg);
+        padding: 3px;
+      }
+
+      .catalog-rating::before {
+        content: "";
+        position: absolute;
+        inset: 3px;
+        border-radius: 999px;
+        background: #ffffff;
+      }
+
+      .catalog-rating span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .catalog-rating-star {
+        position: absolute;
+        right: -2px;
+        top: -2px;
+        z-index: 2;
+        font-size: 12px;
+        color: #f59e0b;
+        background: #ffffff;
+        border-radius: 999px;
+        width: 16px;
+        height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
   </head>
 
   <body data-page="courses">
@@ -473,278 +682,430 @@
             </div>
           </div>
 
-          <!-- Premium Course Cards -->
-          <div class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
+          <!-- White-Label Marketplace Course Cards -->
+          <div class="catalog-grid">
             <!-- CARD 1 -->
-            <article
-              class="course-card group relative overflow-hidden rounded-[30px] bg-white border border-slate-200 shadow-[0_12px_32px_rgba(15,23,42,0.06)]"
-            >
-              <div
-                class="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-amber-400 via-orange-400 to-rose-400"
-              ></div>
-
-              <div class="course-thumb">
-                <img
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
-                  alt="Career Launch Intensive"
-                  class="w-full h-full object-cover"
-                />
-
-                <div class="absolute top-4 left-4 z-10 flex gap-2">
-                  <span
-                    class="px-3 py-1 rounded-full bg-white/90 backdrop-blur text-xs font-semibold text-slate-800"
-                  >
-                    Pro
-                  </span>
-                  <span
-                    class="px-3 py-1 rounded-full bg-amber-400/90 text-xs font-semibold text-slate-900"
-                  >
-                    Premium
-                  </span>
+            <article class="catalog-card">
+              <div class="catalog-image-wrap">
+                <div class="catalog-image">
+                  <img
+                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
+                    alt="UI Design Fundamentals"
+                  />
                 </div>
-
-                <div class="absolute bottom-4 left-4 right-4 z-10">
-                  <p
-                    class="text-white/80 text-xs uppercase tracking-[0.2em] font-semibold"
-                  >
-                    Premium Cohort
-                  </p>
-                  <h3 class="text-white text-2xl font-bold leading-tight mt-1">
-                    Career Launch Intensive
-                  </h3>
-                </div>
+                <span class="catalog-badge primary">Featured</span>
               </div>
 
-              <div class="p-5">
-                <h4 class="text-xl font-bold text-slate-900 leading-snug">
-                  Career Launch Intensive (Frontend, Logic & Interview Prep)
-                </h4>
+              <div class="catalog-body">
+                <h3 class="catalog-title">
+                  UI Design Fundamentals & Digital Product Thinking
+                </h3>
 
-                <div class="mt-5 grid grid-cols-2 gap-3">
-                  <div class="meta-tile">
-                    <p
-                      class="text-xs text-slate-500 font-semibold uppercase tracking-wide"
-                    >
-                      Duration
-                    </p>
-                    <p class="mt-2 text-lg font-bold text-slate-900">480 hrs</p>
-                  </div>
-                  <div class="meta-tile">
-                    <p
-                      class="text-xs text-slate-500 font-semibold uppercase tracking-wide"
-                    >
-                      Classes
-                    </p>
-                    <p class="mt-2 text-lg font-bold text-slate-900">
-                      24 Classes
-                    </p>
-                  </div>
+                <div class="catalog-meta">
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">📘</span>
+                    Modules: 12
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">👥</span>
+                    Learners: 198
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">🏆</span>
+                    Beginner
+                  </span>
                 </div>
 
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="tag-chip brand">Assessments</span>
-                  <span class="tag-chip">Resources</span>
-                  <span class="tag-chip">Mentor Support</span>
-                </div>
-
-                <div
-                  class="mt-5 pt-5 border-t border-slate-200 flex items-center justify-between gap-4"
-                >
-                  <div>
-                    <p class="text-sm text-slate-500">Price</p>
-                    <p class="text-3xl font-extrabold text-slate-900">
-                      2999.00
-                    </p>
-                  </div>
-
-                  <button
-                    class="pill-btn bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 text-white shadow-lg hover:scale-[1.02]"
-                  >
-                    Enroll Now
+                <div class="catalog-footer">
+                  <button class="catalog-btn">
+                    Start Learning
+                    <span>›</span>
                   </button>
+
+                  <div class="catalog-rating">
+                    <span>4</span>
+                    <div class="catalog-rating-star">★</div>
+                  </div>
                 </div>
               </div>
             </article>
 
             <!-- CARD 2 -->
-            <article
-              class="course-card group relative overflow-hidden rounded-[30px] bg-white border border-slate-200 shadow-[0_12px_32px_rgba(15,23,42,0.06)]"
-            >
-              <div
-                class="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-indigo-500 via-violet-500 to-cyan-500"
-              ></div>
-
-              <div class="course-thumb">
-                <img
-                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
-                  alt="Civic Mastery Program"
-                  class="w-full h-full object-cover"
-                />
-
-                <div class="absolute top-4 left-4 z-10 flex gap-2">
-                  <span
-                    class="px-3 py-1 rounded-full bg-white/90 backdrop-blur text-xs font-semibold text-slate-800"
-                  >
-                    Core
-                  </span>
-                  <span
-                    class="px-3 py-1 rounded-full bg-indigo-500/90 text-xs font-semibold text-white"
-                  >
-                    Popular
-                  </span>
+            <article class="catalog-card">
+              <div class="catalog-image-wrap">
+                <div class="catalog-image">
+                  <img
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+                    alt="Programming Essentials"
+                  />
                 </div>
-
-                <div class="absolute bottom-4 left-4 right-4 z-10">
-                  <p
-                    class="text-white/80 text-xs uppercase tracking-[0.2em] font-semibold"
-                  >
-                    Structured Path
-                  </p>
-                  <h3 class="text-white text-2xl font-bold leading-tight mt-1">
-                    Civic Mastery Program
-                  </h3>
-                </div>
+                <span class="catalog-badge">Popular</span>
               </div>
 
-              <div class="p-5">
-                <h4 class="text-xl font-bold text-slate-900 leading-snug">
-                  Civic Mastery Program (Governance, Aptitude & Current Affairs)
-                </h4>
+              <div class="catalog-body">
+                <h3 class="catalog-title">
+                  Programming Essentials for Beginners & Practical Coding
+                  Workflows
+                </h3>
 
-                <div class="mt-5 grid grid-cols-2 gap-3">
-                  <div class="meta-tile">
-                    <p
-                      class="text-xs text-slate-500 font-semibold uppercase tracking-wide"
-                    >
-                      Duration
-                    </p>
-                    <p class="mt-2 text-lg font-bold text-slate-900">520 hrs</p>
-                  </div>
-                  <div class="meta-tile">
-                    <p
-                      class="text-xs text-slate-500 font-semibold uppercase tracking-wide"
-                    >
-                      Classes
-                    </p>
-                    <p class="mt-2 text-lg font-bold text-slate-900">
-                      72 Classes
-                    </p>
-                  </div>
+                <div class="catalog-meta">
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">📘</span>
+                    Modules: 21
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">👥</span>
+                    Learners: 99
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">🏆</span>
+                    Advanced
+                  </span>
                 </div>
 
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="tag-chip brand">Tests</span>
-                  <span class="tag-chip">Resources</span>
-                  <span class="tag-chip">Practice Sets</span>
-                </div>
-
-                <div
-                  class="mt-5 pt-5 border-t border-slate-200 flex items-center justify-between gap-4"
-                >
-                  <div>
-                    <p class="text-sm text-slate-500">Access</p>
-                    <p class="text-base font-semibold text-slate-900">
-                      Available Now
-                    </p>
-                  </div>
-
-                  <button
-                    class="pill-btn bg-gradient-to-r from-indigo-500 via-violet-500 to-cyan-500 text-white shadow-lg hover:scale-[1.02]"
-                  >
-                    View Program
+                <div class="catalog-footer">
+                  <button class="catalog-btn">
+                    Start Learning
+                    <span>›</span>
                   </button>
+
+                  <div
+                    class="catalog-rating"
+                    style="
+                      background: conic-gradient(
+                        #f59e0b 0deg 240deg,
+                        #e5e7eb 240deg 360deg
+                      );
+                    "
+                  >
+                    <span>3</span>
+                    <div class="catalog-rating-star">★</div>
+                  </div>
                 </div>
               </div>
             </article>
 
             <!-- CARD 3 -->
-            <article
-              class="course-card group relative overflow-hidden rounded-[30px] bg-white border border-slate-200 shadow-[0_12px_32px_rgba(15,23,42,0.06)]"
-            >
-              <div
-                class="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-cyan-500 via-sky-500 to-indigo-500"
-              ></div>
-
-              <div class="course-thumb">
-                <img
-                  src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80"
-                  alt="Starter Success Sessions"
-                  class="w-full h-full object-cover"
-                />
-
-                <div class="absolute top-4 left-4 z-10 flex gap-2">
-                  <span
-                    class="px-3 py-1 rounded-full bg-white/90 backdrop-blur text-xs font-semibold text-slate-800"
-                  >
-                    Free
-                  </span>
-                  <span
-                    class="px-3 py-1 rounded-full bg-emerald-500/90 text-xs font-semibold text-white"
-                  >
-                    Starter
-                  </span>
+            <article class="catalog-card">
+              <div class="catalog-image-wrap">
+                <div class="catalog-image">
+                  <img
+                    src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80"
+                    alt="Creative Performance"
+                  />
                 </div>
-
-                <div class="absolute bottom-4 left-4 right-4 z-10">
-                  <p
-                    class="text-white/80 text-xs uppercase tracking-[0.2em] font-semibold"
-                  >
-                    Open Access
-                  </p>
-                  <h3 class="text-white text-2xl font-bold leading-tight mt-1">
-                    Starter Success Sessions
-                  </h3>
-                </div>
+                <span class="catalog-badge">Trending</span>
               </div>
 
-              <div class="p-5">
-                <h4 class="text-xl font-bold text-slate-900 leading-snug">
-                  Starter Success Sessions (Intro Classes, Quick Skills &
-                  Orientation)
-                </h4>
+              <div class="catalog-body">
+                <h3 class="catalog-title">
+                  Creative Performance, Audio Skills & Practical Media
+                  Confidence
+                </h3>
 
-                <div class="mt-5 grid grid-cols-2 gap-3">
-                  <div class="meta-tile">
-                    <p
-                      class="text-xs text-slate-500 font-semibold uppercase tracking-wide"
-                    >
-                      Duration
-                    </p>
-                    <p class="mt-2 text-lg font-bold text-slate-900">2 hrs</p>
-                  </div>
-                  <div class="meta-tile">
-                    <p
-                      class="text-xs text-slate-500 font-semibold uppercase tracking-wide"
-                    >
-                      Classes
-                    </p>
-                    <p class="mt-2 text-lg font-bold text-slate-900">
-                      3 Classes
-                    </p>
-                  </div>
+                <div class="catalog-meta">
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">📘</span>
+                    Modules: 8
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">👥</span>
+                    Learners: 301
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">🏆</span>
+                    Intermediate
+                  </span>
                 </div>
 
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="tag-chip brand">Intro Tests</span>
-                  <span class="tag-chip">Resources</span>
-                  <span class="tag-chip">Community Access</span>
-                </div>
-
-                <div
-                  class="mt-5 pt-5 border-t border-slate-200 flex items-center justify-between gap-4"
-                >
-                  <div>
-                    <p class="text-sm text-slate-500">Type</p>
-                    <p class="text-base font-semibold text-slate-900">
-                      Free Access
-                    </p>
-                  </div>
-
-                  <button
-                    class="pill-btn bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-500 text-white shadow-lg hover:scale-[1.02]"
-                  >
-                    View Details
+                <div class="catalog-footer">
+                  <button class="catalog-btn">
+                    Start Learning
+                    <span>›</span>
                   </button>
+
+                  <div
+                    class="catalog-rating"
+                    style="
+                      background: conic-gradient(
+                        #f59e0b 0deg 330deg,
+                        #e5e7eb 330deg 360deg
+                      );
+                    "
+                  >
+                    <span>5</span>
+                    <div class="catalog-rating-star">★</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- CARD 4 -->
+            <article class="catalog-card">
+              <div class="catalog-image-wrap">
+                <div class="catalog-image">
+                  <img
+                    src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80"
+                    alt="Mobile Product Build"
+                  />
+                </div>
+                <span class="catalog-badge">New</span>
+              </div>
+
+              <div class="catalog-body">
+                <h3 class="catalog-title">
+                  Mobile Product Build with Cross-Platform App Development
+                </h3>
+
+                <div class="catalog-meta">
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">📘</span>
+                    Modules: 15
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">👥</span>
+                    Learners: 215
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">🏆</span>
+                    Beginner
+                  </span>
+                </div>
+
+                <div class="catalog-footer">
+                  <button class="catalog-btn">
+                    Start Learning
+                    <span>›</span>
+                  </button>
+
+                  <div
+                    class="catalog-rating"
+                    style="
+                      background: conic-gradient(
+                        #f59e0b 0deg 180deg,
+                        #e5e7eb 180deg 360deg
+                      );
+                    "
+                  >
+                    <span>2</span>
+                    <div class="catalog-rating-star">★</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- CARD 5 -->
+            <article class="catalog-card">
+              <div class="catalog-image-wrap">
+                <div class="catalog-image">
+                  <img
+                    src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+                    alt="Cross Platform Foundations"
+                  />
+                </div>
+                <span class="catalog-badge">Core</span>
+              </div>
+
+              <div class="catalog-body">
+                <h3 class="catalog-title">
+                  Cross-Platform Foundations for Product Interfaces & App Flows
+                </h3>
+
+                <div class="catalog-meta">
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">📘</span>
+                    Modules: 15
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">👥</span>
+                    Learners: 67
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">🏆</span>
+                    Advanced
+                  </span>
+                </div>
+
+                <div class="catalog-footer">
+                  <button class="catalog-btn">
+                    Start Learning
+                    <span>›</span>
+                  </button>
+
+                  <div
+                    class="catalog-rating"
+                    style="
+                      background: conic-gradient(
+                        #f59e0b 0deg 330deg,
+                        #e5e7eb 330deg 360deg
+                      );
+                    "
+                  >
+                    <span>5</span>
+                    <div class="catalog-rating-star">★</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- CARD 6 -->
+            <article class="catalog-card">
+              <div class="catalog-image-wrap">
+                <div class="catalog-image">
+                  <img
+                    src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80"
+                    alt="Performance and Wellness"
+                  />
+                </div>
+                <span class="catalog-badge">Essential</span>
+              </div>
+
+              <div class="catalog-body">
+                <h3 class="catalog-title">
+                  Performance & Wellness for High-Consistency Learning Routines
+                </h3>
+
+                <div class="catalog-meta">
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">📘</span>
+                    Modules: 26
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">👥</span>
+                    Learners: 156
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">🏆</span>
+                    Intermediate
+                  </span>
+                </div>
+
+                <div class="catalog-footer">
+                  <button class="catalog-btn">
+                    Start Learning
+                    <span>›</span>
+                  </button>
+
+                  <div
+                    class="catalog-rating"
+                    style="
+                      background: conic-gradient(
+                        #f59e0b 0deg 120deg,
+                        #e5e7eb 120deg 360deg
+                      );
+                    "
+                  >
+                    <span>1</span>
+                    <div class="catalog-rating-star">★</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- CARD 7 -->
+            <article class="catalog-card">
+              <div class="catalog-image-wrap">
+                <div class="catalog-image">
+                  <img
+                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+                    alt="Consulting Confidence"
+                  />
+                </div>
+                <span class="catalog-badge primary">Recommended</span>
+              </div>
+
+              <div class="catalog-body">
+                <h3 class="catalog-title">
+                  Consulting Confidence, Client Communication & Delivery Basics
+                </h3>
+
+                <div class="catalog-meta">
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">📘</span>
+                    Modules: 33
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">👥</span>
+                    Learners: 64
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">🏆</span>
+                    Beginner
+                  </span>
+                </div>
+
+                <div class="catalog-footer">
+                  <button class="catalog-btn">
+                    Start Learning
+                    <span>›</span>
+                  </button>
+
+                  <div
+                    class="catalog-rating"
+                    style="
+                      background: conic-gradient(
+                        #f59e0b 0deg 240deg,
+                        #e5e7eb 240deg 360deg
+                      );
+                    "
+                  >
+                    <span>3</span>
+                    <div class="catalog-rating-star">★</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- CARD 8 -->
+            <article class="catalog-card">
+              <div class="catalog-image-wrap">
+                <div class="catalog-image">
+                  <img
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
+                    alt="Product Strategy"
+                  />
+                </div>
+                <span class="catalog-badge">Advanced</span>
+              </div>
+
+              <div class="catalog-body">
+                <h3 class="catalog-title">
+                  Product Strategy, Team Alignment & Outcome-Driven Delivery
+                </h3>
+
+                <div class="catalog-meta">
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">📘</span>
+                    Modules: 5
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">👥</span>
+                    Learners: 134
+                  </span>
+                  <span class="catalog-meta-item">
+                    <span class="catalog-meta-icon">🏆</span>
+                    Advanced
+                  </span>
+                </div>
+
+                <div class="catalog-footer">
+                  <button class="catalog-btn">
+                    Start Learning
+                    <span>›</span>
+                  </button>
+
+                  <div
+                    class="catalog-rating"
+                    style="
+                      background: conic-gradient(
+                        #f59e0b 0deg 300deg,
+                        #e5e7eb 300deg 360deg
+                      );
+                    "
+                  >
+                    <span>4</span>
+                    <div class="catalog-rating-star">★</div>
+                  </div>
                 </div>
               </div>
             </article>
