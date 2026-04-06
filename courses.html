@@ -3,11 +3,198 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learning Paths - White Label LMS</title>
+    <title>Learning Paths - SkillForge Academy</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/app.css" />
+
+    <style>
+      :root {
+        --brand: #5b5cf0;
+        --brand-dark: #4f46e5;
+        --bg: #f7f9ff;
+        --line: #e9edf7;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+
+      body {
+        background:
+          radial-gradient(
+            circle at 8% 10%,
+            rgba(91, 92, 240, 0.08),
+            transparent 22%
+          ),
+          radial-gradient(
+            circle at 90% 8%,
+            rgba(6, 182, 212, 0.06),
+            transparent 18%
+          ),
+          radial-gradient(
+            circle at 82% 88%,
+            rgba(124, 58, 237, 0.06),
+            transparent 16%
+          ),
+          var(--bg);
+        color: var(--text);
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.78);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.85);
+        box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
+      }
+
+      .soft-card {
+        background: #ffffff;
+        border: 1px solid #edf1fa;
+        box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+      }
+
+      .hero-card {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(
+          135deg,
+          #171a3b 0%,
+          #2d3280 48%,
+          #5b5cf0 100%
+        );
+        color: #fff;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        right: -60px;
+        top: -60px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .hero-card::after {
+        content: "";
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        left: -30px;
+        bottom: -30px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .hero-chip {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(8px);
+      }
+
+      .course-card {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .course-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
+        border-color: #dfe5ff;
+      }
+
+      .course-thumb {
+        position: relative;
+        overflow: hidden;
+        height: 220px;
+      }
+
+      .course-thumb img {
+        transition: transform 0.5s ease;
+      }
+
+      .course-card:hover .course-thumb img {
+        transform: scale(1.05);
+      }
+
+      .course-thumb::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(15, 23, 42, 0.7),
+          rgba(15, 23, 42, 0.18),
+          transparent
+        );
+      }
+
+      .meta-tile {
+        border-radius: 18px;
+        background: #f8fafc;
+        border: 1px solid #e5e7eb;
+        padding: 14px;
+      }
+
+      .tag-chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 7px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        border: 1px solid #e5e7eb;
+        background: #fff;
+        color: #475569;
+      }
+
+      .tag-chip.brand {
+        background: #eef0ff;
+        border-color: #dfe5ff;
+        color: var(--brand);
+      }
+
+      .pill-btn {
+        border-radius: 16px;
+        padding: 10px 16px;
+        font-weight: 600;
+        transition: all 0.25s ease;
+      }
+
+      .filter-pill {
+        transition: all 0.25s ease;
+        border: 1px solid transparent;
+      }
+
+      .filter-pill.active {
+        background: linear-gradient(135deg, #eef0ff, #ffffff);
+        border-color: #dfe5ff;
+        color: var(--brand);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      }
+
+      .kpi-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .kpi-card::after {
+        content: "";
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        right: -24px;
+        top: -24px;
+        border-radius: 999px;
+        background: rgba(91, 92, 240, 0.06);
+      }
+    </style>
   </head>
-  <body data-page="courses" class="bg-slate-100 text-slate-900">
+
+  <body data-page="courses">
     <div class="min-h-screen flex">
       <!-- Sidebar -->
       <div id="sidebar-container"></div>
@@ -15,19 +202,21 @@
       <!-- Main -->
       <main class="app-main flex-1 min-w-0 flex flex-col">
         <!-- Topbar -->
-        <header class="bg-white border-b border-slate-200 px-6 lg:px-8 py-4">
+        <header
+          class="sticky top-0 z-30 px-6 lg:px-8 py-4 bg-white/75 backdrop-blur-xl border-b border-slate-200/80"
+        >
           <div
             class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
           >
-            <div class="flex-1 max-w-2xl">
+            <div class="flex-1 max-w-4xl">
               <div class="relative">
                 <input
                   type="text"
                   placeholder="Search tracks, modules, mentors..."
-                  class="w-full pl-12 pr-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  class="w-full h-14 pl-12 pr-4 rounded-2xl bg-white border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
                 <span
-                  class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+                  class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-lg"
                   >🔎</span
                 >
               </div>
@@ -35,26 +224,22 @@
 
             <div class="flex items-center gap-3">
               <button
-                class="w-11 h-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-slate-50"
+                class="w-11 h-11 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center hover:bg-slate-50 transition"
               >
                 🔔
               </button>
-              <button
-                class="w-11 h-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center hover:bg-slate-50"
-              >
-                ⚙️
-              </button>
+
               <div
-                class="flex items-center gap-3 bg-white border border-slate-200 rounded-2xl px-3 py-2 shadow-sm"
+                class="flex items-center gap-3 rounded-2xl bg-white border border-slate-200 px-3 py-2 shadow-sm"
               >
                 <div
-                  class="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-500 to-cyan-500 text-white flex items-center justify-center font-bold"
+                  class="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-600 via-violet-600 to-cyan-500 text-white flex items-center justify-center font-bold"
                 >
-                  AR
+                  SF
                 </div>
-                <div>
-                  <p class="font-semibold text-sm">Aarav Reddy</p>
-                  <p class="text-xs text-slate-500">Student Workspace</p>
+                <div class="hidden sm:block">
+                  <p class="text-sm font-semibold">SkillForge Academy</p>
+                  <p class="text-xs text-slate-500">Learning Workspace</p>
                 </div>
               </div>
             </div>
@@ -63,7 +248,7 @@
 
         <!-- Page Content -->
         <section class="p-6 lg:p-8 space-y-8">
-          <!-- Page Header -->
+          <!-- Header -->
           <div
             class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-5"
           >
@@ -72,12 +257,11 @@
                 Learning Catalog
               </p>
               <h2 class="text-3xl lg:text-4xl font-bold mt-1">
-                Explore Your Learning Paths
+                Explore Learning Paths
               </h2>
               <p class="text-slate-500 mt-2 max-w-3xl">
-                Browse curated programs, structured tracks, and skill-based
-                modules designed to improve your performance and prepare you for
-                real-world outcomes.
+                Browse structured programs, curated career tracks, and focused
+                learning bundles built to help learners upskill faster.
               </p>
             </div>
 
@@ -85,54 +269,42 @@
               <button
                 class="px-5 py-3 rounded-2xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
               >
-                Browse New Tracks
+                Discover New Paths
               </button>
               <button
                 class="px-5 py-3 rounded-2xl bg-white border border-slate-200 font-semibold hover:bg-slate-50 transition"
               >
-                Saved Paths
+                Saved Programs
               </button>
             </div>
           </div>
 
-          <!-- Featured Banner -->
-          <div
-            class="rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-900 to-cyan-900 text-white p-6 lg:p-8 shadow-xl overflow-hidden relative"
-          >
+          <!-- Hero Banner -->
+          <div class="hero-card rounded-[32px] p-6 lg:p-7">
             <div
-              class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"
-            ></div>
-            <div
-              class="absolute right-16 bottom-0 w-32 h-32 bg-cyan-400/10 rounded-full blur-2xl"
-            ></div>
-
-            <div
-              class="relative z-10 grid grid-cols-1 xl:grid-cols-3 gap-6 items-center"
+              class="relative z-10 grid grid-cols-1 xl:grid-cols-12 gap-6 items-center"
             >
-              <div class="xl:col-span-2">
-                <p class="text-sm uppercase tracking-[0.2em] text-white/70">
-                  Featured Path
+              <div class="xl:col-span-8">
+                <p class="text-sm font-semibold text-white/70 tracking-wide">
+                  FEATURED PROGRAM
                 </p>
-                <h3 class="text-3xl lg:text-4xl font-bold mt-3">
-                  Career Acceleration Program
+                <h3 class="text-3xl lg:text-4xl font-bold mt-2 leading-tight">
+                  Career Accelerator Bundle for High-Impact Learning
                 </h3>
-                <p class="mt-3 text-white/80 max-w-2xl">
-                  A complete guided path that combines frontend systems, logic
-                  building, mock interviews, and project-driven learning to help
-                  learners become job-ready.
+                <p class="mt-3 text-white/75 max-w-2xl">
+                  A complete guided program covering logic building, project
+                  workflows, and interview readiness — designed to move learners
+                  from fundamentals to confidence.
                 </p>
 
                 <div class="mt-6 flex flex-wrap gap-3">
-                  <span
-                    class="px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-sm"
+                  <span class="px-3 py-1.5 rounded-full hero-chip text-sm"
                     >24 Modules</span
                   >
-                  <span
-                    class="px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-sm"
+                  <span class="px-3 py-1.5 rounded-full hero-chip text-sm"
                     >Mentor Guided</span
                   >
-                  <span
-                    class="px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-sm"
+                  <span class="px-3 py-1.5 rounded-full hero-chip text-sm"
                     >Intermediate</span
                   >
                 </div>
@@ -144,38 +316,46 @@
                     Start Learning
                   </button>
                   <button
-                    class="px-5 py-3 rounded-2xl bg-white/10 border border-white/15 font-semibold hover:bg-white/15 transition"
+                    class="px-5 py-3 rounded-2xl hero-chip text-white font-semibold transition"
                   >
-                    View Syllabus
+                    View Curriculum
                   </button>
                 </div>
               </div>
 
-              <div
-                class="rounded-3xl bg-white/10 backdrop-blur border border-white/10 p-5"
-              >
-                <p class="text-sm text-white/70">Program Snapshot</p>
-                <div class="mt-4 space-y-4">
-                  <div class="flex items-center justify-between">
-                    <span class="text-white/80">Completion Goal</span>
-                    <span class="font-semibold">8 Weeks</span>
+              <div class="xl:col-span-4">
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="hero-chip rounded-2xl p-4">
+                    <p
+                      class="text-xs text-white/65 uppercase tracking-wide font-semibold"
+                    >
+                      Duration
+                    </p>
+                    <p class="text-2xl font-bold mt-2">8 Weeks</p>
                   </div>
-                  <div class="flex items-center justify-between">
-                    <span class="text-white/80">Projects Included</span>
-                    <span class="font-semibold">4</span>
+                  <div class="hero-chip rounded-2xl p-4">
+                    <p
+                      class="text-xs text-white/65 uppercase tracking-wide font-semibold"
+                    >
+                      Projects
+                    </p>
+                    <p class="text-2xl font-bold mt-2">4</p>
                   </div>
-                  <div class="flex items-center justify-between">
-                    <span class="text-white/80">Mock Interviews</span>
-                    <span class="font-semibold">2</span>
+                  <div class="hero-chip rounded-2xl p-4">
+                    <p
+                      class="text-xs text-white/65 uppercase tracking-wide font-semibold"
+                    >
+                      Mentor Calls
+                    </p>
+                    <p class="text-2xl font-bold mt-2">2</p>
                   </div>
-                  <div class="pt-2">
-                    <div class="flex justify-between text-sm mb-2">
-                      <span class="text-white/80">Learner Interest</span>
-                      <span class="font-semibold">92%</span>
-                    </div>
-                    <div class="h-2 bg-white/15 rounded-full overflow-hidden">
-                      <div class="h-full w-[92%] bg-white rounded-full"></div>
-                    </div>
+                  <div class="hero-chip rounded-2xl p-4">
+                    <p
+                      class="text-xs text-white/65 uppercase tracking-wide font-semibold"
+                    >
+                      Interest
+                    </p>
+                    <p class="text-2xl font-bold mt-2">92%</p>
                   </div>
                 </div>
               </div>
@@ -183,23 +363,20 @@
           </div>
 
           <!-- Filters -->
-          <div
-            class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
-          >
+          <div class="glass rounded-[28px] p-5 lg:p-6">
             <div class="flex flex-col 2xl:flex-row 2xl:items-center gap-4">
               <div class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4">
                 <select
-                  class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >
                   <option>All Categories</option>
-                  <option>Development</option>
-                  <option>Design</option>
-                  <option>Interview Prep</option>
-                  <option>Soft Skills</option>
+                  <option>Career Tracks</option>
+                  <option>Core Skills</option>
+                  <option>Starter Programs</option>
                 </select>
 
                 <select
-                  class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >
                   <option>All Levels</option>
                   <option>Beginner</option>
@@ -208,7 +385,7 @@
                 </select>
 
                 <select
-                  class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >
                   <option>Sort by Popularity</option>
                   <option>Newest First</option>
@@ -219,22 +396,22 @@
 
               <div class="flex flex-wrap gap-2">
                 <button
-                  class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold"
+                  class="filter-pill active px-4 py-2 rounded-full bg-white text-sm font-semibold border border-slate-200"
                 >
                   All
                 </button>
                 <button
-                  class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200"
+                  class="filter-pill px-4 py-2 rounded-full bg-white text-sm font-medium border border-slate-200 text-slate-600"
                 >
                   Trending
                 </button>
                 <button
-                  class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200"
+                  class="filter-pill px-4 py-2 rounded-full bg-white text-sm font-medium border border-slate-200 text-slate-600"
                 >
                   Mentor-led
                 </button>
                 <button
-                  class="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200"
+                  class="filter-pill px-4 py-2 rounded-full bg-white text-sm font-medium border border-slate-200 text-slate-600"
                 >
                   Short Tracks
                 </button>
@@ -242,571 +419,411 @@
             </div>
           </div>
 
-          <!-- Main Grid -->
-          <div class="grid grid-cols-1 2xl:grid-cols-3 gap-6">
-            <!-- Left Main Content -->
-            <div class="2xl:col-span-2 space-y-6">
-              <!-- Progress Summary -->
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div
-                  class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
-                >
-                  <div class="flex items-start justify-between">
-                    <div>
-                      <p class="text-sm text-slate-500">Ongoing Paths</p>
-                      <h3 class="text-3xl font-bold mt-2">03</h3>
-                    </div>
-                    <div
-                      class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center"
-                    >
-                      📘
-                    </div>
-                  </div>
-                  <p class="mt-4 text-sm text-emerald-600 font-medium">
-                    2 progressing steadily
-                  </p>
+          <!-- Quick Summary -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="soft-card kpi-card rounded-[28px] p-5">
+              <div class="relative z-10 flex items-start justify-between">
+                <div>
+                  <p class="text-sm text-slate-500">Active Paths</p>
+                  <h3 class="text-3xl font-bold mt-2">03</h3>
                 </div>
-
                 <div
-                  class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
+                  class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl"
                 >
-                  <div class="flex items-start justify-between">
-                    <div>
-                      <p class="text-sm text-slate-500">Completed Tracks</p>
-                      <h3 class="text-3xl font-bold mt-2">07</h3>
-                    </div>
-                    <div
-                      class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center"
-                    >
-                      🏅
-                    </div>
-                  </div>
-                  <p class="mt-4 text-sm text-emerald-600 font-medium">
-                    Strong completion history
-                  </p>
-                </div>
-
-                <div
-                  class="rounded-3xl bg-white p-5 border border-slate-200 shadow-sm"
-                >
-                  <div class="flex items-start justify-between">
-                    <div>
-                      <p class="text-sm text-slate-500">Avg. Retention</p>
-                      <h3 class="text-3xl font-bold mt-2">89%</h3>
-                    </div>
-                    <div
-                      class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center"
-                    >
-                      📈
-                    </div>
-                  </div>
-                  <p class="mt-4 text-sm text-emerald-600 font-medium">
-                    Above peer average
-                  </p>
+                  📘
                 </div>
               </div>
-
-              <!-- Course Cards -->
-              <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
-                <!-- Card 1 -->
-                <div
-                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
-                >
-                  <div
-                    class="h-44 bg-gradient-to-br from-indigo-500 via-violet-500 to-cyan-500 p-5 text-white flex flex-col justify-between"
-                  >
-                    <div class="flex items-center justify-between">
-                      <span
-                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
-                        >Development</span
-                      >
-                      <span class="text-sm font-medium">Intermediate</span>
-                    </div>
-                    <div>
-                      <h3 class="text-2xl font-bold">Frontend Systems Lab</h3>
-                      <p class="text-white/80 text-sm mt-2">
-                        Design scalable interfaces and reusable components.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="p-5">
-                    <div
-                      class="flex items-center justify-between text-sm text-slate-500"
-                    >
-                      <span>18 Modules</span>
-                      <span>72% Complete</span>
-                    </div>
-
-                    <div
-                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
-                    >
-                      <div
-                        class="h-full w-[72%] bg-indigo-500 rounded-full"
-                      ></div>
-                    </div>
-
-                    <div class="mt-5 flex items-center justify-between">
-                      <div>
-                        <p class="font-semibold">Mentor: Kavya Nair</p>
-                        <p class="text-sm text-slate-500">
-                          Next session: Tomorrow
-                        </p>
-                      </div>
-                      <button
-                        class="px-4 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
-                      >
-                        Continue
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div
-                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
-                >
-                  <div
-                    class="h-44 bg-gradient-to-br from-slate-900 via-slate-800 to-cyan-700 p-5 text-white flex flex-col justify-between"
-                  >
-                    <div class="flex items-center justify-between">
-                      <span
-                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
-                        >Logic</span
-                      >
-                      <span class="text-sm font-medium">Beginner</span>
-                    </div>
-                    <div>
-                      <h3 class="text-2xl font-bold">
-                        Problem Solving Foundations
-                      </h3>
-                      <p class="text-white/80 text-sm mt-2">
-                        Build strong logical thinking with guided practice sets.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="p-5">
-                    <div
-                      class="flex items-center justify-between text-sm text-slate-500"
-                    >
-                      <span>14 Modules</span>
-                      <span>48% Complete</span>
-                    </div>
-
-                    <div
-                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
-                    >
-                      <div
-                        class="h-full w-[48%] bg-cyan-500 rounded-full"
-                      ></div>
-                    </div>
-
-                    <div class="mt-5 flex items-center justify-between">
-                      <div>
-                        <p class="font-semibold">Mentor: Rohan Mehta</p>
-                        <p class="text-sm text-slate-500">
-                          Practice set unlocked
-                        </p>
-                      </div>
-                      <button
-                        class="px-4 py-2.5 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 transition"
-                      >
-                        Resume
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div
-                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
-                >
-                  <div
-                    class="h-44 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 p-5 text-white flex flex-col justify-between"
-                  >
-                    <div class="flex items-center justify-between">
-                      <span
-                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
-                        >Career Prep</span
-                      >
-                      <span class="text-sm font-medium">Advanced</span>
-                    </div>
-                    <div>
-                      <h3 class="text-2xl font-bold">
-                        Interview Mastery Track
-                      </h3>
-                      <p class="text-white/80 text-sm mt-2">
-                        Sharpen communication, mock rounds, and confidence.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="p-5">
-                    <div
-                      class="flex items-center justify-between text-sm text-slate-500"
-                    >
-                      <span>10 Modules</span>
-                      <span>90% Complete</span>
-                    </div>
-
-                    <div
-                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
-                    >
-                      <div
-                        class="h-full w-[90%] bg-emerald-500 rounded-full"
-                      ></div>
-                    </div>
-
-                    <div class="mt-5 flex items-center justify-between">
-                      <div>
-                        <p class="font-semibold">Mentor: Nisha Patel</p>
-                        <p class="text-sm text-slate-500">
-                          1 mock interview left
-                        </p>
-                      </div>
-                      <button
-                        class="px-4 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition"
-                      >
-                        Finish Track
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div
-                  class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden"
-                >
-                  <div
-                    class="h-44 bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 p-5 text-white flex flex-col justify-between"
-                  >
-                    <div class="flex items-center justify-between">
-                      <span
-                        class="px-3 py-1 rounded-full bg-white/15 text-xs font-semibold border border-white/10"
-                        >Projects</span
-                      >
-                      <span class="text-sm font-medium">Intermediate</span>
-                    </div>
-                    <div>
-                      <h3 class="text-2xl font-bold">Build & Ship Projects</h3>
-                      <p class="text-white/80 text-sm mt-2">
-                        Create portfolio-ready projects with guided reviews.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="p-5">
-                    <div
-                      class="flex items-center justify-between text-sm text-slate-500"
-                    >
-                      <span>16 Modules</span>
-                      <span>12% Complete</span>
-                    </div>
-
-                    <div
-                      class="mt-3 h-2 bg-slate-200 rounded-full overflow-hidden"
-                    >
-                      <div
-                        class="h-full w-[12%] bg-amber-500 rounded-full"
-                      ></div>
-                    </div>
-
-                    <div class="mt-5 flex items-center justify-between">
-                      <div>
-                        <p class="font-semibold">Mentor: Aditya Sharma</p>
-                        <p class="text-sm text-slate-500">
-                          Project 1 available
-                        </p>
-                      </div>
-                      <button
-                        class="px-4 py-2.5 rounded-xl bg-amber-500 text-white font-semibold hover:bg-amber-600 transition"
-                      >
-                        Start
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Recommended Grid -->
-              <div
-                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
-              >
-                <div
-                  class="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
-                >
-                  <div>
-                    <h3 class="text-2xl font-bold">Recommended for You</h3>
-                    <p class="text-sm text-slate-500 mt-1">
-                      Based on your progress and learning behavior
-                    </p>
-                  </div>
-                  <button
-                    class="px-5 py-3 rounded-2xl bg-slate-100 font-semibold hover:bg-slate-200 transition"
-                  >
-                    View Recommendations
-                  </button>
-                </div>
-
-                <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div
-                    class="rounded-2xl bg-slate-50 p-4 border border-slate-200"
-                  >
-                    <div
-                      class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl"
-                    >
-                      ⚡
-                    </div>
-                    <h4 class="font-semibold mt-4">Speed Coding Drills</h4>
-                    <p class="text-sm text-slate-500 mt-2">
-                      Short exercises to improve speed and accuracy.
-                    </p>
-                  </div>
-
-                  <div
-                    class="rounded-2xl bg-slate-50 p-4 border border-slate-200"
-                  >
-                    <div
-                      class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-xl"
-                    >
-                      🧠
-                    </div>
-                    <h4 class="font-semibold mt-4">System Thinking Basics</h4>
-                    <p class="text-sm text-slate-500 mt-2">
-                      Learn structured approaches to solve bigger problems.
-                    </p>
-                  </div>
-
-                  <div
-                    class="rounded-2xl bg-slate-50 p-4 border border-slate-200"
-                  >
-                    <div
-                      class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl"
-                    >
-                      🎤
-                    </div>
-                    <h4 class="font-semibold mt-4">
-                      Communication for Interviews
-                    </h4>
-                    <p class="text-sm text-slate-500 mt-2">
-                      Practice clear and confident responses in mock sessions.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <p class="mt-4 text-sm text-emerald-600 font-medium">
+                2 progressing steadily
+              </p>
             </div>
 
-            <!-- Right Sidebar Content -->
-            <div class="space-y-6">
-              <!-- Learning Roadmap -->
-              <div
-                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
-              >
-                <div class="flex items-center justify-between">
-                  <h3 class="text-xl font-bold">Roadmap Status</h3>
-                  <span
-                    class="text-xs font-semibold px-2 py-1 rounded-full bg-indigo-100 text-indigo-700"
-                    >Active</span
-                  >
+            <div class="soft-card kpi-card rounded-[28px] p-5">
+              <div class="relative z-10 flex items-start justify-between">
+                <div>
+                  <p class="text-sm text-slate-500">Completed Tracks</p>
+                  <h3 class="text-3xl font-bold mt-2">07</h3>
                 </div>
-
-                <div class="mt-6 space-y-5">
-                  <div class="flex gap-4">
-                    <div class="flex flex-col items-center">
-                      <div
-                        class="w-4 h-4 rounded-full bg-emerald-500 mt-1"
-                      ></div>
-                      <div class="w-0.5 flex-1 bg-slate-200 mt-2"></div>
-                    </div>
-                    <div class="pb-4">
-                      <p class="font-semibold">Foundation Phase</p>
-                      <p class="text-sm text-slate-500 mt-1">
-                        Completed core concepts and basic practice sets.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="flex gap-4">
-                    <div class="flex flex-col items-center">
-                      <div
-                        class="w-4 h-4 rounded-full bg-indigo-500 mt-1"
-                      ></div>
-                      <div class="w-0.5 flex-1 bg-slate-200 mt-2"></div>
-                    </div>
-                    <div class="pb-4">
-                      <p class="font-semibold">Skill Building</p>
-                      <p class="text-sm text-slate-500 mt-1">
-                        Currently progressing through guided modules.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="flex gap-4">
-                    <div class="flex flex-col items-center">
-                      <div class="w-4 h-4 rounded-full bg-slate-300 mt-1"></div>
-                      <div class="w-0.5 flex-1 bg-slate-200 mt-2"></div>
-                    </div>
-                    <div class="pb-4">
-                      <p class="font-semibold text-slate-600">
-                        Project Execution
-                      </p>
-                      <p class="text-sm text-slate-500 mt-1">
-                        Apply concepts in portfolio-ready builds.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="flex gap-4">
-                    <div class="flex flex-col items-center">
-                      <div class="w-4 h-4 rounded-full bg-slate-300 mt-1"></div>
-                    </div>
-                    <div>
-                      <p class="font-semibold text-slate-600">
-                        Interview Readiness
-                      </p>
-                      <p class="text-sm text-slate-500 mt-1">
-                        Final preparation with mentor reviews.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Mentor Suggestion -->
-              <div
-                class="rounded-3xl bg-gradient-to-br from-indigo-600 via-violet-600 to-cyan-600 p-6 text-white shadow-xl"
-              >
-                <p class="text-sm text-white/80">Mentor Suggestion</p>
-                <h3 class="text-2xl font-bold mt-2">
-                  Focus on One Core Track This Week
-                </h3>
-                <p class="mt-3 text-white/85 text-sm">
-                  Complete your current active modules before starting a new
-                  path to improve retention and momentum.
-                </p>
-                <button
-                  class="mt-5 px-5 py-3 rounded-2xl bg-white text-indigo-700 font-semibold hover:bg-slate-100 transition"
+                <div
+                  class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl"
                 >
-                  View My Plan
-                </button>
+                  🏅
+                </div>
               </div>
+              <p class="mt-4 text-sm text-emerald-600 font-medium">
+                Strong completion history
+              </p>
+            </div>
 
-              <!-- Upcoming Sessions -->
+            <div class="soft-card kpi-card rounded-[28px] p-5">
+              <div class="relative z-10 flex items-start justify-between">
+                <div>
+                  <p class="text-sm text-slate-500">Avg. Retention</p>
+                  <h3 class="text-3xl font-bold mt-2">89%</h3>
+                </div>
+                <div
+                  class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-xl"
+                >
+                  📈
+                </div>
+              </div>
+              <p class="mt-4 text-sm text-emerald-600 font-medium">
+                Above peer average
+              </p>
+            </div>
+          </div>
+
+          <!-- Premium Course Cards -->
+          <div class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
+            <!-- CARD 1 -->
+            <article
+              class="course-card group relative overflow-hidden rounded-[30px] bg-white border border-slate-200 shadow-[0_12px_32px_rgba(15,23,42,0.06)]"
+            >
               <div
-                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
-              >
-                <div class="flex items-center justify-between">
-                  <h3 class="text-xl font-bold">Upcoming Sessions</h3>
-                  <a href="#" class="text-sm font-semibold text-indigo-600"
-                    >See all</a
+                class="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-amber-400 via-orange-400 to-rose-400"
+              ></div>
+
+              <div class="course-thumb">
+                <img
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+                  alt="Career Launch Intensive"
+                  class="w-full h-full object-cover"
+                />
+
+                <div class="absolute top-4 left-4 z-10 flex gap-2">
+                  <span
+                    class="px-3 py-1 rounded-full bg-white/90 backdrop-blur text-xs font-semibold text-slate-800"
                   >
+                    Pro
+                  </span>
+                  <span
+                    class="px-3 py-1 rounded-full bg-amber-400/90 text-xs font-semibold text-slate-900"
+                  >
+                    Premium
+                  </span>
                 </div>
 
-                <div class="mt-5 space-y-4">
-                  <div
-                    class="rounded-2xl bg-slate-50 border border-slate-200 p-4"
+                <div class="absolute bottom-4 left-4 right-4 z-10">
+                  <p
+                    class="text-white/80 text-xs uppercase tracking-[0.2em] font-semibold"
                   >
-                    <p class="font-semibold">UI Architecture Review</p>
-                    <p class="text-sm text-slate-500 mt-1">
-                      Tomorrow • 07:00 PM
+                    Premium Cohort
+                  </p>
+                  <h3 class="text-white text-2xl font-bold leading-tight mt-1">
+                    Career Launch Intensive
+                  </h3>
+                </div>
+              </div>
+
+              <div class="p-5">
+                <h4 class="text-xl font-bold text-slate-900 leading-snug">
+                  Career Launch Intensive (Frontend, Logic & Interview Prep)
+                </h4>
+
+                <div class="mt-5 grid grid-cols-2 gap-3">
+                  <div class="meta-tile">
+                    <p
+                      class="text-xs text-slate-500 font-semibold uppercase tracking-wide"
+                    >
+                      Duration
+                    </p>
+                    <p class="mt-2 text-lg font-bold text-slate-900">480 hrs</p>
+                  </div>
+                  <div class="meta-tile">
+                    <p
+                      class="text-xs text-slate-500 font-semibold uppercase tracking-wide"
+                    >
+                      Classes
+                    </p>
+                    <p class="mt-2 text-lg font-bold text-slate-900">
+                      24 Classes
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="tag-chip brand">Assessments</span>
+                  <span class="tag-chip">Resources</span>
+                  <span class="tag-chip">Mentor Support</span>
+                </div>
+
+                <div
+                  class="mt-5 pt-5 border-t border-slate-200 flex items-center justify-between gap-4"
+                >
+                  <div>
+                    <p class="text-sm text-slate-500">Price</p>
+                    <p class="text-3xl font-extrabold text-slate-900">
+                      2999.00
                     </p>
                   </div>
 
-                  <div
-                    class="rounded-2xl bg-slate-50 border border-slate-200 p-4"
+                  <button
+                    class="pill-btn bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 text-white shadow-lg hover:scale-[1.02]"
                   >
-                    <p class="font-semibold">Logic Sprint Practice</p>
-                    <p class="text-sm text-slate-500 mt-1">Friday • 06:00 PM</p>
-                  </div>
+                    Enroll Now
+                  </button>
+                </div>
+              </div>
+            </article>
 
-                  <div
-                    class="rounded-2xl bg-slate-50 border border-slate-200 p-4"
+            <!-- CARD 2 -->
+            <article
+              class="course-card group relative overflow-hidden rounded-[30px] bg-white border border-slate-200 shadow-[0_12px_32px_rgba(15,23,42,0.06)]"
+            >
+              <div
+                class="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-indigo-500 via-violet-500 to-cyan-500"
+              ></div>
+
+              <div class="course-thumb">
+                <img
+                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+                  alt="Civic Mastery Program"
+                  class="w-full h-full object-cover"
+                />
+
+                <div class="absolute top-4 left-4 z-10 flex gap-2">
+                  <span
+                    class="px-3 py-1 rounded-full bg-white/90 backdrop-blur text-xs font-semibold text-slate-800"
                   >
-                    <p class="font-semibold">Mock Interview Round</p>
-                    <p class="text-sm text-slate-500 mt-1">
-                      Saturday • 11:30 AM
-                    </p>
-                  </div>
+                    Core
+                  </span>
+                  <span
+                    class="px-3 py-1 rounded-full bg-indigo-500/90 text-xs font-semibold text-white"
+                  >
+                    Popular
+                  </span>
+                </div>
+
+                <div class="absolute bottom-4 left-4 right-4 z-10">
+                  <p
+                    class="text-white/80 text-xs uppercase tracking-[0.2em] font-semibold"
+                  >
+                    Structured Path
+                  </p>
+                  <h3 class="text-white text-2xl font-bold leading-tight mt-1">
+                    Civic Mastery Program
+                  </h3>
                 </div>
               </div>
 
-              <!-- Skills Snapshot -->
-              <div
-                class="rounded-3xl bg-white p-6 border border-slate-200 shadow-sm"
-              >
-                <div class="flex items-center justify-between">
-                  <h3 class="text-xl font-bold">Skills Snapshot</h3>
-                  <span class="text-sm font-semibold text-slate-500"
-                    >Updated</span
+              <div class="p-5">
+                <h4 class="text-xl font-bold text-slate-900 leading-snug">
+                  Civic Mastery Program (Governance, Aptitude & Current Affairs)
+                </h4>
+
+                <div class="mt-5 grid grid-cols-2 gap-3">
+                  <div class="meta-tile">
+                    <p
+                      class="text-xs text-slate-500 font-semibold uppercase tracking-wide"
+                    >
+                      Duration
+                    </p>
+                    <p class="mt-2 text-lg font-bold text-slate-900">520 hrs</p>
+                  </div>
+                  <div class="meta-tile">
+                    <p
+                      class="text-xs text-slate-500 font-semibold uppercase tracking-wide"
+                    >
+                      Classes
+                    </p>
+                    <p class="mt-2 text-lg font-bold text-slate-900">
+                      72 Classes
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="tag-chip brand">Tests</span>
+                  <span class="tag-chip">Resources</span>
+                  <span class="tag-chip">Practice Sets</span>
+                </div>
+
+                <div
+                  class="mt-5 pt-5 border-t border-slate-200 flex items-center justify-between gap-4"
+                >
+                  <div>
+                    <p class="text-sm text-slate-500">Access</p>
+                    <p class="text-base font-semibold text-slate-900">
+                      Available Now
+                    </p>
+                  </div>
+
+                  <button
+                    class="pill-btn bg-gradient-to-r from-indigo-500 via-violet-500 to-cyan-500 text-white shadow-lg hover:scale-[1.02]"
                   >
+                    View Program
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- CARD 3 -->
+            <article
+              class="course-card group relative overflow-hidden rounded-[30px] bg-white border border-slate-200 shadow-[0_12px_32px_rgba(15,23,42,0.06)]"
+            >
+              <div
+                class="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-cyan-500 via-sky-500 to-indigo-500"
+              ></div>
+
+              <div class="course-thumb">
+                <img
+                  src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80"
+                  alt="Starter Success Sessions"
+                  class="w-full h-full object-cover"
+                />
+
+                <div class="absolute top-4 left-4 z-10 flex gap-2">
+                  <span
+                    class="px-3 py-1 rounded-full bg-white/90 backdrop-blur text-xs font-semibold text-slate-800"
+                  >
+                    Free
+                  </span>
+                  <span
+                    class="px-3 py-1 rounded-full bg-emerald-500/90 text-xs font-semibold text-white"
+                  >
+                    Starter
+                  </span>
                 </div>
 
-                <div class="mt-5 space-y-4">
-                  <div>
-                    <div class="flex justify-between text-sm mb-2">
-                      <span>Interface Design</span>
-                      <span>82%</span>
-                    </div>
-                    <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
-                      <div
-                        class="h-full w-[82%] bg-indigo-500 rounded-full"
-                      ></div>
-                    </div>
-                  </div>
+                <div class="absolute bottom-4 left-4 right-4 z-10">
+                  <p
+                    class="text-white/80 text-xs uppercase tracking-[0.2em] font-semibold"
+                  >
+                    Open Access
+                  </p>
+                  <h3 class="text-white text-2xl font-bold leading-tight mt-1">
+                    Starter Success Sessions
+                  </h3>
+                </div>
+              </div>
 
-                  <div>
-                    <div class="flex justify-between text-sm mb-2">
-                      <span>Logic Building</span>
-                      <span>74%</span>
-                    </div>
-                    <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
-                      <div
-                        class="h-full w-[74%] bg-cyan-500 rounded-full"
-                      ></div>
-                    </div>
-                  </div>
+              <div class="p-5">
+                <h4 class="text-xl font-bold text-slate-900 leading-snug">
+                  Starter Success Sessions (Intro Classes, Quick Skills &
+                  Orientation)
+                </h4>
 
-                  <div>
-                    <div class="flex justify-between text-sm mb-2">
-                      <span>Project Execution</span>
-                      <span>58%</span>
-                    </div>
-                    <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
-                      <div
-                        class="h-full w-[58%] bg-emerald-500 rounded-full"
-                      ></div>
-                    </div>
+                <div class="mt-5 grid grid-cols-2 gap-3">
+                  <div class="meta-tile">
+                    <p
+                      class="text-xs text-slate-500 font-semibold uppercase tracking-wide"
+                    >
+                      Duration
+                    </p>
+                    <p class="mt-2 text-lg font-bold text-slate-900">2 hrs</p>
                   </div>
-
-                  <div>
-                    <div class="flex justify-between text-sm mb-2">
-                      <span>Communication</span>
-                      <span>67%</span>
-                    </div>
-                    <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
-                      <div
-                        class="h-full w-[67%] bg-amber-500 rounded-full"
-                      ></div>
-                    </div>
+                  <div class="meta-tile">
+                    <p
+                      class="text-xs text-slate-500 font-semibold uppercase tracking-wide"
+                    >
+                      Classes
+                    </p>
+                    <p class="mt-2 text-lg font-bold text-slate-900">
+                      3 Classes
+                    </p>
                   </div>
                 </div>
+
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="tag-chip brand">Intro Tests</span>
+                  <span class="tag-chip">Resources</span>
+                  <span class="tag-chip">Community Access</span>
+                </div>
+
+                <div
+                  class="mt-5 pt-5 border-t border-slate-200 flex items-center justify-between gap-4"
+                >
+                  <div>
+                    <p class="text-sm text-slate-500">Type</p>
+                    <p class="text-base font-semibold text-slate-900">
+                      Free Access
+                    </p>
+                  </div>
+
+                  <button
+                    class="pill-btn bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-500 text-white shadow-lg hover:scale-[1.02]"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Recommended -->
+          <div class="soft-card rounded-[30px] p-6">
+            <div
+              class="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+            >
+              <div>
+                <h3 class="text-2xl font-bold">Recommended for You</h3>
+                <p class="text-sm text-slate-500 mt-1">
+                  Based on your progress and learning behavior
+                </p>
+              </div>
+              <button
+                class="px-5 py-3 rounded-2xl bg-slate-100 font-semibold hover:bg-slate-200 transition"
+              >
+                View Recommendations
+              </button>
+            </div>
+
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="rounded-2xl bg-slate-50 p-4 border border-slate-200">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl"
+                >
+                  ⚡
+                </div>
+                <h4 class="font-semibold mt-4">Speed Practice Drills</h4>
+                <p class="text-sm text-slate-500 mt-2">
+                  Short exercises to improve speed, recall, and confidence.
+                </p>
+              </div>
+
+              <div class="rounded-2xl bg-slate-50 p-4 border border-slate-200">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-xl"
+                >
+                  🧠
+                </div>
+                <h4 class="font-semibold mt-4">System Thinking Basics</h4>
+                <p class="text-sm text-slate-500 mt-2">
+                  Learn structured approaches to solve bigger problem sets.
+                </p>
+              </div>
+
+              <div class="rounded-2xl bg-slate-50 p-4 border border-slate-200">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl"
+                >
+                  🎤
+                </div>
+                <h4 class="font-semibold mt-4">Communication for Interviews</h4>
+                <p class="text-sm text-slate-500 mt-2">
+                  Practice clear and confident responses in guided mock
+                  sessions.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
         <!-- Footer -->
-        <footer class="px-6 lg:px-8 py-4 border-t border-slate-200 bg-white">
+        <footer
+          class="px-6 lg:px-8 py-4 border-t border-slate-200 bg-white/70 backdrop-blur-xl mt-auto"
+        >
           <div
             class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-sm text-slate-500"
           >
-            <p>© 2026 LearnX Studio. All rights reserved.</p>
+            <p>© 2026 SkillForge Academy. All rights reserved.</p>
             <div class="flex flex-wrap gap-4">
-              <a href="#" class="hover:text-slate-800">Help Center</a>
-              <a href="#" class="hover:text-slate-800">Privacy</a>
-              <a href="#" class="hover:text-slate-800">Terms</a>
-              <a href="#" class="hover:text-slate-800">Support</a>
+              <a href="#" class="hover:text-slate-800 transition"
+                >Help Center</a
+              >
+              <a href="#" class="hover:text-slate-800 transition">Privacy</a>
+              <a href="#" class="hover:text-slate-800 transition">Terms</a>
+              <a href="#" class="hover:text-slate-800 transition">Support</a>
             </div>
           </div>
         </footer>
@@ -814,5 +831,16 @@
     </div>
 
     <script src="js/app.js"></script>
+
+    <script>
+      document.querySelectorAll(".filter-pill").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".filter-pill")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+        });
+      });
+    </script>
   </body>
 </html>
